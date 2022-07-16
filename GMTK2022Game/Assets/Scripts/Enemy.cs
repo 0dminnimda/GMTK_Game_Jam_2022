@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private List<Weapon> _weapons;
 
+    [SerializeField]
+    private Pathfinding.AIPath _aIPath;
+
     private GameObject _target;
     private Vector3 _targetPos;
 
@@ -27,20 +30,26 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_target != null)
+        if (_aIPath.reachedDestination)
         {
             _targetPos = _target.transform.position;
             RotateTowardsTarget();
-            float step = _enemySpeed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
         }
+        if(_target != null)
+        {
+            //_targetPos = _target.transform.position;
+            //RotateTowardsTarget();
+            //float step = _enemySpeed * Time.deltaTime;
+            //transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        }
+        
     }
 
     private void RotateTowardsTarget()
     {
         Vector2 vectorToTarget = _targetPos - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
     }
 
