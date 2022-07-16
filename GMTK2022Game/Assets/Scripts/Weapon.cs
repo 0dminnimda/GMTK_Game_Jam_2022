@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     public void Shoot()
 	{
         Debug.Log("Pos spawn: " + gameObject.transform.position.ToString());
-        var proj = Instantiate(_projectilePrefab, position: gameObject.transform.position, rotation: gameObject.transform.rotation);
+        var proj = Instantiate(_projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
         var script = proj.GetComponent<Projectile>();
         script.SetDamageLayer(_damageLayer);
 	}
