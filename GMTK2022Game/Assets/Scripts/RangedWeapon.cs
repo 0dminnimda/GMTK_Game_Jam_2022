@@ -20,7 +20,7 @@ public class RangedWeapon : Weapon
 
 	private Rigidbody2D _parentRb;
 
-	void Start()
+	void Awake()
 	{
 		_parentRb = GetComponentInParent<Rigidbody2D>();
 	}

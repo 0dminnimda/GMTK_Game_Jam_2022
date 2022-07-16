@@ -34,9 +34,9 @@ public class Projectile : MonoBehaviour
 	{
 		Debug.Log("Collision! " + collision.ToString());
 		var health = collision.gameObject.GetComponent<Health>();
+		SelfDestruct();
 		if (health == null)
 			return;
-		SelfDestruct();
 		DealDamage(health);
 	}
 
