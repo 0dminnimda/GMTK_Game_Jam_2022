@@ -25,14 +25,15 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        _targetPos = _target.transform.position;
-
-        RotateTowardsTarget();
-
-        float step = _enemySpeed * Time.fixedDeltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        if(_target != null)
+        {
+            _targetPos = _target.transform.position;
+            RotateTowardsTarget();
+            float step = _enemySpeed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        }
     }
 
     private void RotateTowardsTarget()
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
         Vector2 vectorToTarget = _targetPos - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.fixedDeltaTime * _rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
     }
 
     IEnumerator DoCheck()
