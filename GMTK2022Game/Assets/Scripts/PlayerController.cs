@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
             _rolling = true;
             _fullRoll = true;
             _health.ignoreDamage = true;
+            gameObject.layer = 3;
             StartCoroutine(DodgerollIEnum());
         }
     }
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
         }
         _fullRoll = false;
         _health.ignoreDamage = false;
+        gameObject.layer = 0;
         while (timer < _rollTime + _rollcd)
         {
             _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
