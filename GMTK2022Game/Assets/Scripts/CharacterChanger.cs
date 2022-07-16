@@ -4,6 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class CharacterOption
+{
+    public GameObject Prefab;
+    public Texture2D Texture;
+}
+
 public class CharacterChanger : MonoBehaviour
 {
     [SerializeField]
@@ -15,10 +22,7 @@ public class CharacterChanger : MonoBehaviour
     private GameObject _currentCharacterInstance;
 
     [SerializeField]
-    private GameObject[] _characterPrefabs;
-
-    [SerializeField]
-    private Sprite[] _characterSprites;
+    private CharacterOption[] _characterOptions;
 
     [SerializeField]
     private GameObject _changerMenu;
@@ -48,31 +52,27 @@ public class CharacterChanger : MonoBehaviour
     }
 
     private void RefreshOptions() {
-        List<GameObject> charactersWithoutCurrent = new List<GameObject>();
-        List<Sprite> characterSpritesWithoutCurrent = new List<Sprite>();
+        List<CharacterOption> withoutCurrent = new List<CharacterOption>();
 
-        for (int i = 0; i < _characterPrefabs.Length; i++)
+        for (int i = 0; i < _characterOptions.Length; i++)
         {
-            if (_characterPrefabs[i].gameObject != _currentCharacter.gameObject)
+            if (_characterOptions[i].Prefab != _currentCharacter.gameObject)
             {
-                charactersWithoutCurrent.Add(_characterPrefabs[i]);
-                characterSpritesWithoutCurrent.Add(_characterSprites[i]);
+                withoutCurrent.Add(_characterOptions[i]);
             }
         }
 
         for (int i = 0; i < 3; i++)
         {
-            int randomIndex = Random.Range(0, charactersWithoutCurrent.Count);
+            int randomIndex = Random.Range(0, withoutCurrent.Count);
 
-            GameObject randomCharacter = charactersWithoutCurrent[randomIndex];
-            Sprite randomCharacterSprite = characterSpritesWithoutCurrent[randomIndex];
-            _optionsButtons[i].GetComponentInChildren<TMP_Text>().text = randomCharacter.name;
-            _optionsButtons[i].GetComponentInChildren<RawImage>().texture = randomCharacterSprite.texture;
+            CharacterOption randomCharacter = withoutCurrent[randomIndex];
+            _optionsButtons[i].GetComponentInChildren<TMP_Text>().text = randomCharacter.Prefab.name;
+            _optionsButtons[i].GetComponentInChildren<RawImage>().texture = randomCharacter.Texture;
 
-            _currentCharacterPrefabs[i] = randomCharacter;
+            _currentCharacterPrefabs[i] = randomCharacter.Prefab;
 
-            charactersWithoutCurrent.RemoveAt(randomIndex);
-            characterSpritesWithoutCurrent.RemoveAt(randomIndex);
+            withoutCurrent.RemoveAt(randomIndex);
         }
     }
 
