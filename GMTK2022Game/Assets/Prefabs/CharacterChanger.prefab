@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8949847515913121330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8949847515913121324}
+  - component: {fileID: 8949847515913121331}
+  m_Layer: 0
+  m_Name: CharacterChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8949847515913121324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949847515913121330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1071599, y: 2.4635901, z: -0.0040889913}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8949847515913121331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949847515913121330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8ec49033b9e9a4ab15a19e25f659f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCharacter: {fileID: 0}
+  _currentCharacter: {fileID: 6673282045136434466, guid: 09b3825c404bb9f43be394fe1106cfde, type: 3}
+  _characterOptions:
+  - Prefab: {fileID: 6673282045136434466, guid: 3df603331e1a3f943aa7714407e6903f, type: 3}
+    Texture: {fileID: 2800000, guid: 6cef724710115004eae49f7ef13aa437, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 0aa025a06d627b84199a4d6fc54b8343, type: 3}
+    Texture: {fileID: 2800000, guid: 7e2360f9ef8e35d46a7f936c2fa2b297, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 4c0060342ca20364cb2c36532fd610bc, type: 3}
+    Texture: {fileID: 2800000, guid: 80b717c054d6dd446994dfebee1d9b1f, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 769b79bbb99f415439814aa950a853a8, type: 3}
+    Texture: {fileID: 2800000, guid: 3941f828fc0bf31428862ad9a979330e, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 17e242f62f14370498c33dac85ba3c5b, type: 3}
+    Texture: {fileID: 2800000, guid: deaea866f9954cf438bc75ca863764e9, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 5d3df546642d69b4abf7ba09831b9da4, type: 3}
+    Texture: {fileID: 2800000, guid: a72bbe10df6f801419999732b41d4130, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 6196840e4ddd4054aa1adf69607bcac7, type: 3}
+    Texture: {fileID: 2800000, guid: 170018e96a3030943adee38a536918be, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: 09b3825c404bb9f43be394fe1106cfde, type: 3}
+    Texture: {fileID: 2800000, guid: 3449f2847cba0954eac55a0c76c913ba, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: c7e22fd61c3f899459c0bfaf1dab9f96, type: 3}
+    Texture: {fileID: 2800000, guid: e963e47675921fe4c99a52bfb8ae83f7, type: 3}
+  - Prefab: {fileID: 6673282045136434466, guid: a8b1b0ce333570e4f8c0ec9d3ef452ef, type: 3}
+    Texture: {fileID: 2800000, guid: e79c5834ae954b64bb4d159e64af7f9a, type: 3}
+  _changerMenu: {fileID: 0}
+  _optionsButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
