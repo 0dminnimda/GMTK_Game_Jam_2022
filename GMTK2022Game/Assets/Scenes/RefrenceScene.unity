@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 6673282043731114791}
-  _lerpPower: 1
+  _lerpPower: 9
 --- !u!1001 &58436223
 PrefabInstance:
   m_ObjectHideFlags: 0
