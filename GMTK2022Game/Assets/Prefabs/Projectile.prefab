@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 6195154315677471353}
   _lifetime: 2
-  _speed: 400
+  _speed: 800
   _damage: 1
 --- !u!50 &6195154315677471353
 Rigidbody2D:

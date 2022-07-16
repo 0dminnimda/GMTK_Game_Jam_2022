@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             foreach (Weapon wep in _weapons)
             {
-                wep.Shoot();
+                wep.Action();
             }
             yield return new WaitForSeconds(1f);
         }

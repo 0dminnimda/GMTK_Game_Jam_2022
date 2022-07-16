@@ -6,6 +6,8 @@ public class MainCharacter : MonoBehaviour
 {
     [SerializeField]
     private List<Weapon> _weapons;
+
+    public List<Weapon> WeaponList => _weapons;
     // Start is called before the first frame update
     void Start()
     {

@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedWeapon : MonoBehaviour
+public class RangedWeapon : Weapon
 {
+    [SerializeField]
+    private GameObject _projectilePrefab;
 
-    [SerializeField] GameObject _projectilePrefab;
-    [SerializeField] float projectileSpeed = 5f;
-    [SerializeField] private DamageLayer _damageLayer;
+    [SerializeField]
+    private float _projectileSpeed;
 
     void Start()
     {
@@ -18,22 +19,13 @@ public class RangedWeapon : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
+        
     }
 
-    private void Shoot() 
+    public override void Action() 
     {
-        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-
-        Vector2 dir = transform.position - transform.parent.position;
-        dir.Normalize();
-
+        var projectile = Instantiate(_projectilePrefab, transform.position, gameObject.transform.rotation);
         var script = projectile.GetComponent<Projectile>();
         script.SetDamageLayer(_damageLayer);
-
-        projectile.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Force);
     }
 }

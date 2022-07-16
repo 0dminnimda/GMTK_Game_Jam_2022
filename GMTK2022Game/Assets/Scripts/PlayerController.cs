@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
+    private MainCharacter _character;
+
+    [SerializeField]
     private Rigidbody2D _rigidBody2D;
 
     [SerializeField]
@@ -21,9 +24,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
     }
+
     private void Update()
     {
         Rotation();
+        if(Input.GetAxisRaw("Fire1") > 0)
+        {
+            _character.WeaponList.ForEach(x => x.Action());
+        }
     }
 
     void FixedUpdate()

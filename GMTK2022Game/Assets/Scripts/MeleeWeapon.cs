@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class MeleeWeapon : Weapon
 {
-
     [SerializeField] int _damage = 1;
-    [SerializeField] private DamageLayer _damageLayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,5 +23,7 @@ public class MeleeWeapon : MonoBehaviour
     {
         health.DealDamage(_damage, _damageLayer);
     }
+
+    public override void Action() { }
 
 }
