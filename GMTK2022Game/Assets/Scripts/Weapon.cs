@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
 {
 	[SerializeField]
 	protected DamageLayer _damageLayer;
+	public void SetDamageLayer(DamageLayer layer) => _damageLayer = layer;
 
 	[SerializeField]
 	protected float _actionCooldown;

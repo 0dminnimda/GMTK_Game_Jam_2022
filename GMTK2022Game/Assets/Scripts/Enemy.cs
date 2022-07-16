@@ -13,6 +13,12 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private List<Weapon> _weapons;
 
+	[SerializeField]
+	private Rigidbody2D _rb;
+
+	[SerializeField]
+	private Transform[] _pivotPoints;
+
 	private GameObject _target;
 	private Vector3 _targetPos;
 
@@ -20,6 +26,7 @@ public class Enemy : MonoBehaviour
 	void Awake()
 	{
 		_target = FindObjectOfType<MainCharacter>().gameObject;
+		SpawnWeapons();
 	}
 
 	void Start()
@@ -53,9 +60,28 @@ public class Enemy : MonoBehaviour
 		{
 			foreach (Weapon wep in _weapons)
 			{
-				wep.Action();
+				if (wep != null)
+					wep.Action();
 			}
 			yield return new WaitForSeconds(1f);
+		}
+	}
+
+	private void SpawnWeapons()
+	{
+		for (int i = 0; i < _pivotPoints.Length; i++)
+		{
+			if (_weapons[i] == null)
+				continue;
+
+			Weapon weaponObj = Instantiate(_weapons[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
+			weaponObj.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Player);
+
+			FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
+			if (fixedJointComp != null)
+			{
+				fixedJointComp.connectedBody = _rb;
+			}
 		}
 	}
 }
