@@ -28,11 +28,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         _targetPos = _target.transform.position;
-        float step = _enemySpeed * Time.deltaTime;
-
-        transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
 
         RotateTowardsTarget();
+
+        float step = _enemySpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
     }
 
     private void RotateTowardsTarget()
