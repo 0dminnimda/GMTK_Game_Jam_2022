@@ -1047,6 +1047,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0712acf974ca2144e944fef575a2f40d, type: 3}
+--- !u!1 &1883565362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883565364}
+  - component: {fileID: 1883565363}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1883565363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883565362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7241a3e106230140bd9d59ff2d17ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioFileObjects:
+  - {fileID: 11400000, guid: 957fdf1a3bba09c4fb901d0a5cfb4e92, type: 2}
+  - {fileID: 11400000, guid: 37c39077d5494c24fb52137b38445550, type: 2}
+  - {fileID: 11400000, guid: c11d66aa38a50ad48b31730d97f502a9, type: 2}
+  - {fileID: 11400000, guid: 52ba85cd77155964c996afc032b38ce6, type: 2}
+  - {fileID: 11400000, guid: d90be5a663fc8154c86930564d45851a, type: 2}
+  - {fileID: 11400000, guid: 242233003a89e724d9e8b686fba052be, type: 2}
+  - {fileID: 11400000, guid: 914d9ccbca4873d4bbc5aeb660f46388, type: 2}
+  - {fileID: 11400000, guid: 8bb69a5d443fcef46a551899e7b8818a, type: 2}
+  - {fileID: 11400000, guid: 53b16277b5a8e5d4ab9d49e6c9e459f2, type: 2}
+  - {fileID: 11400000, guid: 867e4f0857c428145a97ecaefccdeebd, type: 2}
+  audioFileMusicObjects:
+  - {fileID: 11400000, guid: 26b3b915833fac44ba09eb69a5454397, type: 2}
+  sceneSoundEnumName: JSAM.Sounds
+  sceneMusicEnumName: JSAM.Music
+  masterVolume: 1
+  masterMuted: 0
+  soundVolume: 1
+  soundMuted: 0
+  musicVolume: 1
+  musicMuted: 0
+  spatialSound: 1
+  audioSources: 32
+  disableConsoleLogs: 0
+  dontDestroyOnLoad: 1
+  dynamicSourceAllocation: 1
+  stopOnSceneLoad: 0
+  spatializeLateUpdate: 0
+  timeScaledSounds: 1
+  instancedEnums: 0
+  wasInstancedBefore: 0
+  listener: {fileID: 1369234}
+  sourcePrefab: {fileID: 3048837711066349604, guid: cf11aed7e0e56ae45afe7eaebe30a616, type: 3}
+  audioFolderLocation: Assets/Audio
+--- !u!4 &1883565364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883565362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1952795972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4473149308941539970, guid: caaac272b08c3f34eaa4ad957b40a18e, type: 3}
