@@ -32,7 +32,7 @@ public class LevelGenerator : MonoBehaviour
             foreach (var obs in _possibleStaticObstacles)
             {
                 if(Random.Range(0,1) < _densityStaticObstacles)
-				{
+                {
                     var collider = obs.GetComponent<Collider2D>();
                     Vector2 size = collider.bounds.size;
                     Vector2 pos = RandomPosition(_boundingBox);
