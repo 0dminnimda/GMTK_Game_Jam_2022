@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729371606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.9, y: 4.93, z: 0}
+  m_LocalPosition: {x: 2.37, y: 1.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -343,7 +343,7 @@ MonoBehaviour:
   healthdropPivot: {fileID: 1020191846}
   healthdropSpeed: 5
   followObject: {fileID: 1005807955}
-  followOffset: {x: 0, y: 0, z: 0}
+  followOffset: {x: 0, y: 2, z: 0}
 --- !u!1 &929991176
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1005807955}
-  _lerpPower: 0
+  _lerpPower: 10
 --- !u!1 &1005807953
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,9 +563,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody2D: {fileID: 1005807961}
+  _spriteRenderer: {fileID: 1051657831}
+  _health: {fileID: 1005807960}
   _playerSpeed: 100
   _rotationMethod: 0
   _spinningSpeed: 300
+  _rollSpeedMultiplier: 1.7
+  _rollTime: 0.4
+  _rollcd: 0.2
 --- !u!114 &1005807960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +586,7 @@ MonoBehaviour:
   _currentHealth: 3
   _currentMaxHealth: 3
   _damageLayer: 0
+  ignoreDamage: 0
 --- !u!50 &1005807961
 Rigidbody2D:
   serializedVersion: 4
@@ -916,6 +922,7 @@ MonoBehaviour:
   _currentHealth: 1
   _currentMaxHealth: 1
   _damageLayer: 1
+  ignoreDamage: 0
 --- !u!4 &1433631338
 Transform:
   m_ObjectHideFlags: 0
@@ -931,7 +938,7 @@ Transform:
   - {fileID: 1017567900}
   - {fileID: 2047217744}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!58 &1433631339
 CircleCollider2D:
@@ -1015,7 +1022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597459677
 GameObject:
@@ -1345,7 +1352,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2979338022520670397, guid: 0712acf974ca2144e944fef575a2f40d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2979338022520670397, guid: 0712acf974ca2144e944fef575a2f40d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1516,7 +1523,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8686684358422203196, guid: 2e3a9070ef11b1d4c87a4fbe6f23445b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8686684358422203196, guid: 2e3a9070ef11b1d4c87a4fbe6f23445b, type: 3}
       propertyPath: m_LocalPosition.x
