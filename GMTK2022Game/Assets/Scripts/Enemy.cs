@@ -17,10 +17,13 @@ public class Enemy : MonoBehaviour
 	private Vector3 _targetPos;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		_target = FindObjectOfType<MainCharacter>().gameObject;
+	}
 
+	void Start()
+	{
 		StartCoroutine(nameof(DoCheck));
 	}
 
