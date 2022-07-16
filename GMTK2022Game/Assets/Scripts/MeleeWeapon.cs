@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class MeleeWeapon : Weapon
 {
-    [SerializeField] int _damage = 1;
+    [SerializeField] 
+    int _damage = 1;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.GetComponent<Health>())
-        {
+        var health = collision.gameObject.GetComponent<Health>();
+        if(!health)
             return;
-        }
-
-        var health = collision.GetComponent<Health>();
 
         DealDamage(health);
     }

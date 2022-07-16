@@ -40,6 +40,7 @@ public class RangedWeapon : Weapon
 
         var script = projectile.GetComponent<Projectile>();
         script.SetDamageLayer(_damageLayer);
+        script.SetProjectileSpeed(_projectileSpeed);
 
         _nextActionTime = Time.time + _actionCooldown;
     }

@@ -10,9 +10,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float _lifetime = 2f;
     [SerializeField]
-    private float _speed = 200f;
-    [SerializeField]
     private int _damage = 1;
+
+    private float _speed;
 
     private DamageLayer _damageLayer;
     private void Awake()
@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
     }
 
     public void SetDamageLayer(DamageLayer layer) => _damageLayer = layer;
+
+    public void SetProjectileSpeed(float speed) => _speed = speed;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
