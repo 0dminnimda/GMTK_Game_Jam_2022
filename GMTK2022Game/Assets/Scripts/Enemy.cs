@@ -27,12 +27,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _targetPos = _target.transform.position;
-
-        RotateTowardsTarget();
-
-        float step = _enemySpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        if(_target != null)
+        {
+            _targetPos = _target.transform.position;
+            RotateTowardsTarget();
+            float step = _enemySpeed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        }
     }
 
     private void RotateTowardsTarget()
