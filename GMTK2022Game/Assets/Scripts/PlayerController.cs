@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
             Dodgeroll();
 
         if (Input.GetAxisRaw("Fire1") > 0)
-            _character.WeaponList.ForEach(x => x.Action());
+            _character.WeaponList.ToList().ForEach(x => { if (x != null) x.Action(); });
     }
 
     void FixedUpdate()
