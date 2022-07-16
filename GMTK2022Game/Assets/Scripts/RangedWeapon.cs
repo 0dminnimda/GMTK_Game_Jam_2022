@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class RangedWeapon : Weapon
 {
 	[SerializeField]
@@ -24,10 +25,9 @@ public class RangedWeapon : Weapon
 		_parentRb = GetComponentInParent<Rigidbody2D>();
 	}
 
-	
 	void Update()
 	{
-		
+
 	}
 
 	public override void Action() 
