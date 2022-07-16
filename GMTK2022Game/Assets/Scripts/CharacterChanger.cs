@@ -18,7 +18,7 @@ public class CharacterChanger : MonoBehaviour
 
     [SerializeField]
     private GameObject _currentCharacter;
-    
+
     private GameObject _currentCharacterInstance;
 
     [SerializeField]
@@ -36,13 +36,13 @@ public class CharacterChanger : MonoBehaviour
     void Start()
     {
         _currentCharacterInstance = Instantiate(_currentCharacter, _mainCharacter.transform);
-        _currentCharacterPrefabs = new GameObject[3];
+        _currentCharacterPrefabs = new GameObject[_optionsButtons.Length];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetKeyDown(KeyCode.E))
         {
             RefreshOptions();
 
@@ -62,7 +62,7 @@ public class CharacterChanger : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < _optionsButtons.Length; i++)
         {
             int randomIndex = Random.Range(0, withoutCurrent.Count);
 
