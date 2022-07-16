@@ -18,10 +18,13 @@ public class Health : MonoBehaviour
 
 	private bool isHealthbarAttached;
 
-	public void Start()
+	public void Awake()
 	{
 		isHealthbarAttached = gameObject.GetComponentInChildren<Healthbar>() != null;
+	}
 
+	public void Start()
+	{
 		if (_currentHealth > _currentMaxHealth)
 			_currentHealth = _currentMaxHealth;
 	}
