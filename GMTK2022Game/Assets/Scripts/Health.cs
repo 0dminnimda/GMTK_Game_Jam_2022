@@ -1,3 +1,4 @@
+using Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour
 	private int _currentHealth;
 	[SerializeField]
 	private int _currentMaxHealth;
+	[SerializeField]
+	private DamageLayer _damageLayer;
 
 	public int CurrentHealth => _currentHealth;
 	public int CurrentMaxHealth => _currentMaxHealth;

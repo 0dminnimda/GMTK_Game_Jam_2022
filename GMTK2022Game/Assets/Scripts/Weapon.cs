@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
 	{
-        Instantiate(_projectilePrefab, gameObject.transform);
+        Debug.Log("Pos spawn: " + gameObject.transform.position.ToString());
+        Instantiate(_projectilePrefab, position: gameObject.transform.position, rotation: gameObject.transform.rotation);
 	}
 }

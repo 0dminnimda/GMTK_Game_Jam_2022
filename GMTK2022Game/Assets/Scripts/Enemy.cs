@@ -20,14 +20,13 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DoCheck()
     {
-        for (; ; )
+        for (; ;)
         {
-            // execute block of code here
-            yield return new WaitForSeconds(.1f);
-            foreach(Weapon wep in _weapons)
-			{
+            foreach (Weapon wep in _weapons)
+            {
                 wep.Shoot();
-			}
+            }
+            yield return new WaitForSeconds(1f);
         }
     }
 }
