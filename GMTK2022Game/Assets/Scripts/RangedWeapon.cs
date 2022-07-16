@@ -14,6 +14,9 @@ public class RangedWeapon : Weapon
     [SerializeField]
     private float _knockbackForce;
 
+    [SerializeField]
+    private float _spray;
+
     private Rigidbody2D _parentRb;
 
     void Start()
@@ -32,7 +35,7 @@ public class RangedWeapon : Weapon
         if (Time.time < _nextActionTime)
             return;
 
-        var projectile = Instantiate(_projectilePrefab, transform.position, gameObject.transform.rotation);
+        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0f, 0f, gameObject.transform.rotation.eulerAngles.z + Random.Range(-_spray, _spray)));
         _parentRb.AddForce(transform.right * -_knockbackForce);
 
         var script = projectile.GetComponent<Projectile>();
