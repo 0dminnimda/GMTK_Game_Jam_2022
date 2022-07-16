@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private MainCharacter _character;
+
+    [SerializeField]
     private Rigidbody2D _rigidBody2D;
 
     [SerializeField]
@@ -36,14 +39,15 @@ public class PlayerController : MonoBehaviour
     private bool _fullRoll;
     private Vector2 _rolldir;
 
-    private void Start()
-    {
-    }
     private void Update()
     {
         Rotation();
+
         if (!_rolling && Input.GetKeyDown(KeyCode.Space))
             Dodgeroll();
+
+        if (Input.GetAxisRaw("Fire1") > 0)
+            _character.WeaponList.ForEach(x => x.Action());
     }
 
     void FixedUpdate()
