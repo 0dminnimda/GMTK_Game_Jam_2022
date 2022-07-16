@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
     private Rigidbody2D _rigidBody2D;
+
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
+    private Health _health;
 
     [SerializeField]
     private float _playerSpeed = 1f;
@@ -18,18 +24,48 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _spinningSpeed;
 
+
+    [SerializeField]
+    private float _rollSpeedMultiplier;
+    [SerializeField]
+    private float _rollTime;
+    [SerializeField]
+    private float _rollcd;
+
+    private bool _rolling;
+    private bool _fullRoll;
+    private Vector2 _rolldir;
+
     private void Start()
     {
     }
     private void Update()
     {
         Rotation();
+        if (!_rolling && Input.GetKeyDown(KeyCode.Space))
+            Dodgeroll();
     }
 
     void FixedUpdate()
     {
+        if (!_fullRoll)
+            Movement();
+    }
+    private void Movement()
+    {
         Vector2 move = Vector3.Normalize(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
         _rigidBody2D.AddForce(move * Time.fixedDeltaTime * _playerSpeed, ForceMode2D.Impulse);
+    }
+    private void Dodgeroll()
+    {
+        if(_rigidBody2D.velocity.magnitude > 0.5f)
+        {
+            _rolldir = _rigidBody2D.velocity.normalized;
+            _rolling = true;
+            _fullRoll = true;
+            _health.ignoreDamage = true;
+            StartCoroutine(DodgerollIEnum());
+        }
     }
 
     private void Rotation()
@@ -61,5 +97,26 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(Vector3.forward * Time.deltaTime * _spinningSpeed);
         }
+    }
+    private IEnumerator DodgerollIEnum()
+    {
+        float timer = 0f;
+        Color characterColor = _spriteRenderer.color;
+        while(timer < _rollTime)
+        {
+            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
+            _rigidBody2D.AddForce(_rolldir * Time.deltaTime * _playerSpeed * _rollSpeedMultiplier * (((_rollTime - timer) / _rollTime) + 1), ForceMode2D.Impulse);
+            timer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _fullRoll = false;
+        _health.ignoreDamage = false;
+        while (timer < _rollTime + _rollcd)
+        {
+            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
+            timer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _rolling = false;
     }
 }
