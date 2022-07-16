@@ -149,7 +149,7 @@ public class WaveManager : MonoBehaviour
         Wave wave = GetWave();
         for (int i = 0; i < MaxNumberOfEnemies(); i++)
         {
-            GameObject o = SpawnEnemy(i, wave);
+            SpawnEnemy(i, wave);
             // Destroy(o, 4f);
             yield return new WaitForSeconds(wave.delay);
         }
@@ -203,12 +203,20 @@ public class WaveManager : MonoBehaviour
 
     GameObject SpawnEnemy(int ind, Wave wave)
     {
-        Vector3 pos = _enemySpawnPositions[Random.Range(0, _enemySpawnPositions.Length)];
+        int i = 0;
+        while(i < MaxNumberOfEnemies())
+		{
+            Vector3 pos = _enemySpawnPositions[Random.Range(0, _enemySpawnPositions.Length)];
+            var randenemy = wave.table.GetRandomItem(ref _enemies);
+            if (Physics2D.OverlapBox(pos, randenemy.GetComponent<Collider2D>().bounds.size, 0))
+                continue;
 
-        var enemy = Instantiate(wave.table.GetRandomItem(ref _enemies), pos, Quaternion.identity);
-        spawnedEnemies.Add(enemy);
+            var enemy = Instantiate(randenemy, pos, Quaternion.identity);
+            spawnedEnemies.Add(enemy);
 
-        return enemy;
+            return enemy;
+        }
+        return null;
     }
 
     private int MaxNumberOfEnemies() => 20;
