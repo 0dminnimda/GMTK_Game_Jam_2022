@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
 	public int CurrentHealth => _currentHealth;
 	public int CurrentMaxHealth => _currentMaxHealth;
+	public DamageLayer DamageLayer => _damageLayer;
 
 	public void Start()
 	{
@@ -21,12 +22,17 @@ public class Health : MonoBehaviour
 			_currentHealth = _currentMaxHealth;
 	}
 
-	public void DealDamage(int amount)
+	public void DealDamage(int amount, DamageLayer layer)
 	{
+		if (layer != _damageLayer)
+			return;
 		if (amount > _currentMaxHealth)
-			_currentMaxHealth = 0;
+			_currentHealth = 0;
 		else
-			_currentMaxHealth -= amount;
+			_currentHealth -= amount;
+		if (_currentHealth <= 0)
+			Die();
+
 	}
 
 	public void Heal(int amount)
@@ -35,5 +41,10 @@ public class Health : MonoBehaviour
 			_currentHealth = _currentMaxHealth;
 		else
 			_currentHealth += amount;
+	}
+
+	public void Die()
+	{
+		Destroy(gameObject);
 	}
 }
