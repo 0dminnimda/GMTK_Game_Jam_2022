@@ -891,6 +891,18 @@ PrefabInstance:
       propertyPath: _weapons.Array.data[3]
       value: 
       objectReference: {fileID: 4473149308941539970, guid: caaac272b08c3f34eaa4ad957b40a18e, type: 3}
+    - target: {fileID: 3712096399513324305, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
+      propertyPath: _weaponPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712096399513324305, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4876440289230719507, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
+    - target: {fileID: 3712096399513324305, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 4473149308941539973, guid: caaac272b08c3f34eaa4ad957b40a18e, type: 3}
     - target: {fileID: 3712096399513324309, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -941,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7036450100203623179, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
@@ -971,6 +983,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3782323453640756561, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
   m_PrefabInstance: {fileID: 7557534464016332407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6673282043731114799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 199533833822195764, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+  m_PrefabInstance: {fileID: 7557534464016332407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6673282043731114788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f1c56876065bb42af30703c7b72c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7557534464016332407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -998,6 +1021,18 @@ PrefabInstance:
       propertyPath: _weapons.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 199533833822195764, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: _weaponPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 199533833822195764, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4473149308941539973, guid: caaac272b08c3f34eaa4ad957b40a18e, type: 3}
+    - target: {fileID: 199533833822195764, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: _weaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 4876440289230719507, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
     - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
       propertyPath: _health
       value: 
@@ -1010,6 +1045,10 @@ PrefabInstance:
       propertyPath: _rollTime
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 6673282043731114799}
     - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
       propertyPath: _spriteRenderer
       value: 
