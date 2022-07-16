@@ -5,7 +5,9 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
 	[SerializeField]
-	private List<Weapon> _weapons;
+	private GameObject[] _weaponPrefabs;
+
+	private Weapon[] _weapons;
 
 	[SerializeField]
 	private Rigidbody2D _rb;
@@ -13,9 +15,10 @@ public class MainCharacter : MonoBehaviour
 	[SerializeField]
 	private Transform[] _pivotPoints;
 
-	public List<Weapon> WeaponList => _weapons;
+	public Weapon[] WeaponList => _weapons;
 	void Awake()
 	{
+		_weapons = new Weapon[4];
 		SpawnWeapons();
     }
 
@@ -28,15 +31,23 @@ public class MainCharacter : MonoBehaviour
 	{
 		for (int i = 0; i < _pivotPoints.Length; i++)
 		{
-			if (_weapons[i] == null)
-				continue;
-
-			Weapon weaponObj = Instantiate(_weapons[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
-			weaponObj.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Enemy);
-
-			if (weaponObj.gameObject.GetComponent<FixedJoint2D>() != null)
+			if (_weaponPrefabs[i] == null)
 			{
-				weaponObj.gameObject.GetComponent<FixedJoint2D>().connectedBody = _rb;
+				_weapons[i] = null;
+				continue;
+			}
+
+			GameObject weaponObj = Instantiate(_weaponPrefabs[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
+
+			Weapon weaponComponent = weaponObj.GetComponent<Weapon>();
+
+			_weapons[i] = weaponComponent;
+			weaponComponent.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Enemy);
+
+			FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
+			if (fixedJointComp != null)
+			{
+				fixedJointComp.connectedBody = _rb;
 			}
 		}
 	}

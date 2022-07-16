@@ -165,7 +165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySpeed: 0.75
   _rotationSpeed: 2
-  _weapons: []
+  _weaponPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _rb: {fileID: 8005226041572785720}
   _pivotPoints:
   - {fileID: 4424755406584627573}

@@ -17,6 +17,7 @@ public class RangedWeapon : Weapon
 	[SerializeField]
 	private float _spray;
 
+	[SerializeField]
 	private Rigidbody2D _parentRb;
 
 	void Awake()
@@ -32,14 +33,14 @@ public class RangedWeapon : Weapon
 
 	public override void Action()
 	{
-		Debug.Log(GetComponentInParent<Rigidbody2D>());
 		Debug.Log(_parentRb);
 
 		if (Time.time < _nextActionTime)
-			return;
+            return;
 
-		var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0f, 0f, gameObject.transform.rotation.eulerAngles.z + Random.Range(-_spray, _spray)));
-		_parentRb.AddForce(transform.right * -_knockbackForce);
+        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0f, 0f, gameObject.transform.rotation.eulerAngles.z + Random.Range(-_spray, _spray)));
+		if (_parentRb != null)
+			_parentRb.AddForce(transform.right * -_knockbackForce);
 
 		var script = projectile.GetComponent<Projectile>();
 		script.SetDamageLayer(_damageLayer);

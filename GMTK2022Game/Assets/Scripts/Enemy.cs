@@ -11,7 +11,9 @@ public class Enemy : MonoBehaviour
 	private float _rotationSpeed = 2f;
 
 	[SerializeField]
-	private List<Weapon> _weapons;
+	private GameObject[] _weaponPrefabs;
+
+	private Weapon[] _weapons;
 
 	[SerializeField]
 	private Rigidbody2D _rb;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
 	// Start is called before the first frame update
 	void Awake()
 	{
+		_weapons = new Weapon[4];
 		_target = FindObjectOfType<MainCharacter>().gameObject;
 		SpawnWeapons();
 	}
@@ -71,11 +74,18 @@ public class Enemy : MonoBehaviour
 	{
 		for (int i = 0; i < _pivotPoints.Length; i++)
 		{
-			if (_weapons[i] == null)
+			if (_weaponPrefabs[i] == null) 
+			{
+				_weapons[i] = null;
 				continue;
+			}
 
-			Weapon weaponObj = Instantiate(_weapons[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
-			weaponObj.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Player);
+			GameObject weaponObj = Instantiate(_weaponPrefabs[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
+
+			Weapon weaponComponent = weaponObj.GetComponent<Weapon>();
+			
+			_weapons[i] = weaponComponent;
+			weaponComponent.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Player);
 
 			FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
 			if (fixedJointComp != null)

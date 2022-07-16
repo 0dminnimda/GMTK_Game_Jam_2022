@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private MainCharacter _character;
+
     [SerializeField]
     private Rigidbody2D _rigidBody2D;
 
@@ -44,6 +48,9 @@ public class PlayerController : MonoBehaviour
         Rotation();
         if (!_rolling && Input.GetKeyDown(KeyCode.Space))
             Dodgeroll();
+
+        if (Input.GetAxisRaw("Fire1") > 0)
+            _character.WeaponList.ToList().ForEach(x => { if (x != null) x.Action(); });
     }
 
     void FixedUpdate()
