@@ -71,5 +71,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+
+/Assets/Jacky's Simple Audio Manager
+/Assets/Jacky's Simple Audio Manager.meta
+
 /Assets/AstarPathfindingProject
 /Assets/AstarPathfindingProject.meta
