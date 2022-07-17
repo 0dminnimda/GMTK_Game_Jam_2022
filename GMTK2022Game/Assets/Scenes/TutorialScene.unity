@@ -2023,11 +2023,11 @@ MonoBehaviour:
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
   masterVolume: 1
-  masterMuted: 1
+  masterMuted: 0
   soundVolume: 1
-  soundMuted: 1
+  soundMuted: 0
   musicVolume: 1
-  musicMuted: 1
+  musicMuted: 0
   spatialSound: 1
   audioSources: 32
   disableConsoleLogs: 0
