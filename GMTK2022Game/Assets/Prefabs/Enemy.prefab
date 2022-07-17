@@ -107,7 +107,7 @@ MonoBehaviour:
   _enemySpeed: 0.75
   _rotationSpeed: 2
   _weapons: []
-  _aIPath: {fileID: 0}
+  _aIPath: {fileID: 4803184544381612106}
 --- !u!114 &377569891063535216
 MonoBehaviour:
   m_ObjectHideFlags: 0
