@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageLayer: 0
   _actionCooldown: 0.05
+  _pickupSprite: {fileID: 21300000, guid: 1a9228fe67c74f4459c37c877fee5d94, type: 3}
   _projectilePrefab: {fileID: 3809282933997565660, guid: 083974119081c614e9a8d891dcddae8e, type: 3}
   _projectileSpeed: 300
   _knockbackForce: 500

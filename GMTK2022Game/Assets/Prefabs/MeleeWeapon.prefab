@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageLayer: 0
   _actionCooldown: 0.5
+  _pickupSprite: {fileID: 21300000, guid: d40680be08db600478a2f768f291862b, type: 3}
   _damage: 1
 --- !u!212 &4876440289230719504
 SpriteRenderer:

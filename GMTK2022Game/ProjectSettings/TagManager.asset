@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Pickups
+    uniqueID: 1017090977
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

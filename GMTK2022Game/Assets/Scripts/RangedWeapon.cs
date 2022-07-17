@@ -17,7 +17,6 @@ public class RangedWeapon : Weapon
 	[SerializeField]
 	private float _spray;
 
-	[SerializeField]
 	private Rigidbody2D _parentRb;
 
 	void Awake()

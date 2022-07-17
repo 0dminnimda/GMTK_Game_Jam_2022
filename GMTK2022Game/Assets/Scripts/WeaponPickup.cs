@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     [SerializeField]
+    private Rigidbody2D _rb;
+    [SerializeField]
     private SpriteRenderer _renderer;
 
     [SerializeField]
@@ -12,14 +14,19 @@ public class WeaponPickup : MonoBehaviour
 
     [SerializeField]
     private GameObject _weaponPrefab;
+    public void SetWeaponPrefab(GameObject prefab) => _weaponPrefab = prefab;
 
     [SerializeField]
     private Sprite _pickupSprite;
+    public void SetPickupSprite(Sprite sprite) => _pickupSprite = sprite;
 
-    [SerializeField][Range(0f, 1f)]
+    [SerializeField]
+    private float _spawnForce;
+
+    [SerializeField] [Range(0f, 1f)]
     private float _mouseOverTransparency;
 
-    [SerializeField][Range(0f, 1f)]
+    [SerializeField] [Range(0f, 1f)]
     private float _mouseDragTransparency;
 
     private bool _isDragged = false;
@@ -37,7 +44,7 @@ public class WeaponPickup : MonoBehaviour
     }
     void Start()
     {
-        _renderer.sprite = _pickupSprite;    
+        _renderer.sprite = _pickupSprite;
     }
     private void OnMouseDown()
     {
@@ -60,7 +67,6 @@ public class WeaponPickup : MonoBehaviour
         else
         {
             //getting pivot id by getting the last character of it's name SO DON'T RENAME WEAPON PIVOTS!!!
-
             char lastChar = _potentialWeaponPivot.name[_potentialWeaponPivot.name.Length - 1];
             int index = System.Int32.Parse(lastChar.ToString());
 
@@ -85,7 +91,7 @@ public class WeaponPickup : MonoBehaviour
         if (((1 << collision.gameObject.layer) & _dragAndDropMask) == 0)
             return;
 
-        if(_potentialWeaponPivot != null)
+        if (_potentialWeaponPivot != null)
             _potentialWeaponPivot.GetComponent<SpriteRenderer>().enabled = false;
 
         //getting maincharacter on the first trigger enter is more efficient than using FindObjectOfType i think
@@ -120,6 +126,10 @@ public class WeaponPickup : MonoBehaviour
             _potentialWeaponPivot = collision.gameObject;
             _potentialWeaponPivot.GetComponent<SpriteRenderer>().enabled = true;
         }
+    }
+    public void Push(Vector3 dir)
+    { 
+		_rb.AddForce(dir * _spawnForce, ForceMode2D.Impulse);
     }
     Vector3 GetMousePos() 
     {

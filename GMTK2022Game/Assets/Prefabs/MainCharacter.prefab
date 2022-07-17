@@ -329,6 +329,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _pickupPrefab: {fileID: 139271603735864982, guid: f96e3dfa477d97f48b4b9ec69ef6161b, type: 3}
   _rb: {fileID: 7557534465027455102}
   _pivotPoints:
   - {fileID: 7768436602065023932}
@@ -347,10 +348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fdbf30f914360419d95e51edf3f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 0}
+  _character: {fileID: 199533833822195764}
   _rigidBody2D: {fileID: 7557534465027455102}
-  _spriteRenderer: {fileID: 0}
-  _health: {fileID: 0}
+  _spriteRenderer: {fileID: 3782323453640756561}
+  _health: {fileID: 199533833822195766}
   _playerSpeed: 100
   _rotationMethod: 0
   _spinningSpeed: 0

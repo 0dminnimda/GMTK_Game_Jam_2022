@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 139271603735864977}
   - component: {fileID: 139271603735864976}
   - component: {fileID: 139271603735864983}
+  - component: {fileID: 2063854265147262304}
   m_Layer: 6
   m_Name: Weapon Pickup
   m_TagString: Drag
@@ -77,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 1017090977
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,12 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80fe7e3ad981bf49a2cc1acb5bda94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 2063854265147262304}
   _renderer: {fileID: 139271603735864977}
   _dragAndDropMask:
     serializedVersion: 2
     m_Bits: 64
   _weaponPrefab: {fileID: 0}
   _pickupSprite: {fileID: 0}
+  _spawnForce: 15
   _mouseOverTransparency: 0.75
   _mouseDragTransparency: 0.5
 --- !u!58 &139271603735864983
@@ -127,3 +130,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1312879
+--- !u!50 &2063854265147262304
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139271603735864982}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 10
+  m_AngularDrag: 0.5
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

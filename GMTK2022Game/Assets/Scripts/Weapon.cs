@@ -15,4 +15,8 @@ public abstract class Weapon : MonoBehaviour
 	protected float _nextActionTime = 0f;
 
 	public abstract void Action();
+
+	[SerializeField]
+	protected Sprite _pickupSprite;
+	public Sprite PickupSprite => _pickupSprite;
 }
