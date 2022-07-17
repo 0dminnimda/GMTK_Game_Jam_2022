@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class MainCharacter : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class MainCharacter : MonoBehaviour
 
 	[SerializeField]
 	private Transform[] _pivotPoints;
+
+	public AudioSource mainMusic;
 
 	public Weapon[] WeaponList => _weapons;
 	void Awake()
@@ -53,17 +56,10 @@ public class MainCharacter : MonoBehaviour
 			fixedJointComp.connectedBody = _rb;
 		}
 	}
-	private void SpawnWeapons() 
-	{
-		for (int i = 0; i < _pivotPoints.Length; i++)
-		{
-			if (_weaponPrefabs[i] == null)
-			{
-				_weapons[i] = null;
-				continue;
-			}
-
-			SpawnWeapon(i, _weaponPrefabs[i]);
-		}
+	
+	// Start is called before the first frame update
+	void Start()
+	{	
+		mainMusic = JSAM.AudioManager.PlayMusic(Music.main_music);
 	}
 }
