@@ -13,8 +13,11 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private List<Weapon> _weapons;
 
-	private GameObject _target;
-	private Vector3 _targetPos;
+    [SerializeField]
+    private Pathfinding.AIPath _aIPath;
+
+    private GameObject _target;
+    private Vector3 _targetPos;
 
 	// Start is called before the first frame update
 	void Awake()
@@ -27,25 +30,31 @@ public class Enemy : MonoBehaviour
 		StartCoroutine(nameof(DoCheck));
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		if(_target != null)
-		{
-			_targetPos = _target.transform.position;
-			RotateTowardsTarget();
-			float step = _enemySpeed * Time.deltaTime;
-			transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (_aIPath.reachedDestination)
+        {
+            _targetPos = _target.transform.position;
+            RotateTowardsTarget();
+        }
+        if(_target != null)
+        {
+            //_targetPos = _target.transform.position;
+            //RotateTowardsTarget();
+            //float step = _enemySpeed * Time.deltaTime;
+            //transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
+        }
+        
+    }
 
-	private void RotateTowardsTarget()
-	{
-		Vector2 vectorToTarget = _targetPos - transform.position;
-		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
-	}
+    private void RotateTowardsTarget()
+    {
+        Vector2 vectorToTarget = _targetPos - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
+    }
 
 	IEnumerator DoCheck()
 	{
