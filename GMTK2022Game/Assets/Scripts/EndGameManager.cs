@@ -22,6 +22,7 @@ public class EndGameManager : MonoBehaviour
     void Update()
     {
         if (player == null) {
+            Time.timeScale = 0;
             endGameScreen.SetActive(true);
         }
         
@@ -33,7 +34,7 @@ public class EndGameManager : MonoBehaviour
                 ResumeGame();
             }
         }
-        if (!pauseGameScreen.active)
+        if (!pauseGameScreen.active && player != null)
             Time.timeScale = 1;
     }
 
