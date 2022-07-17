@@ -2,6 +2,7 @@ using Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class RangedWeapon : Weapon
 {
@@ -34,9 +35,10 @@ public class RangedWeapon : Weapon
 		if (Time.time < _nextActionTime)
             return;
 
-        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0f, 0f, gameObject.transform.rotation.eulerAngles.z + Random.Range(-_spray, _spray)));
-		if (_parentRb != null)
-			_parentRb.AddForce(transform.right * -_knockbackForce);
+		JSAM.AudioManager.PlaySound(Sounds.cannon_1, transform);
+
+		var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0f, 0f, gameObject.transform.rotation.eulerAngles.z + Random.Range(-_spray, _spray)));
+		_parentRb.AddForce(transform.right * -_knockbackForce);
 
 		var script = projectile.GetComponent<Projectile>();
 		script.SetDamageLayer(_damageLayer);

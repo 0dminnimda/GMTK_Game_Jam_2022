@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,9 +41,6 @@ public class PlayerController : MonoBehaviour
     private bool _fullRoll;
     private Vector2 _rolldir;
 
-    private void Start()
-    {
-    }
     private void Update()
     {
         Rotation();
