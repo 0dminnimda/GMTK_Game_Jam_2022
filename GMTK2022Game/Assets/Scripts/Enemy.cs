@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class Enemy : MonoBehaviour
 	void Awake()
 	{
 		_target = FindObjectOfType<MainCharacter>().gameObject;
+		var dist = gameObject.GetComponent<AIDestinationSetter>();
+		dist.target = _target.transform;
 	}
 
 	void Start()
