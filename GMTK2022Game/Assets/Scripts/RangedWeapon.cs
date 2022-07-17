@@ -33,7 +33,7 @@ public class RangedWeapon : Weapon
 	public override void Action()
 	{
 		if (Time.time < _nextActionTime)
-			return;
+            return;
 
 		JSAM.AudioManager.PlaySound(Sounds.cannon_1, transform);
 
