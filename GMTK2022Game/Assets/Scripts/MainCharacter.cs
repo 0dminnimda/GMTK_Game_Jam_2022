@@ -28,6 +28,20 @@ public class MainCharacter : MonoBehaviour
 		SpawnWeapons();
     }
 
+	private void SpawnWeapons()
+	{
+		for (int i = 0; i < _pivotPoints.Length; i++)
+		{
+			if (_weaponPrefabs[i] == null)
+			{
+				_weapons[i] = null;
+				continue;
+			}
+
+			SpawnWeapon(i, _weaponPrefabs[i]);
+		}
+	}
+
 	public void SpawnWeapon(int index, GameObject weaponPrefab) 
 	{
 		if (_weapons[index] != null)

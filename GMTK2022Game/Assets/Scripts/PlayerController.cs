@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private InventoryManager _character;
-
-    [SerializeField]
-    private MainCharacter _character;
 
     [SerializeField]
     private Rigidbody2D _rigidBody2D;
