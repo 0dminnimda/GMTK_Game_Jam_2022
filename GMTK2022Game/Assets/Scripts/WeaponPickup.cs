@@ -36,7 +36,7 @@ public class WeaponPickup : MonoBehaviour
     private Vector3 _dragOffset;
     private GameObject _potentialWeaponPivot;
 
-    private MainCharacter _character;
+    private InventoryManager _character;
     private void Awake()
     {
         _initialPos = transform.position;
@@ -61,7 +61,6 @@ public class WeaponPickup : MonoBehaviour
         _isDragged = false;
         if (_potentialWeaponPivot == null)
         {
-            transform.position = _initialPos;
             _renderer.color = new Color(255f, 255f, 255f, 1f);
         }
         else
@@ -96,7 +95,7 @@ public class WeaponPickup : MonoBehaviour
 
         //getting maincharacter on the first trigger enter is more efficient than using FindObjectOfType i think
         if (_character == null)
-            _character = collision.transform.parent.GetComponentInParent<MainCharacter>();
+            _character = collision.transform.parent.GetComponentInParent<InventoryManager>();
 
         _potentialWeaponPivot = collision.gameObject;
         _potentialWeaponPivot.GetComponent<SpriteRenderer>().enabled = true;
@@ -119,7 +118,7 @@ public class WeaponPickup : MonoBehaviour
             return;
 
         if (_character == null)
-            _character = collision.transform.parent.GetComponentInParent<MainCharacter>();
+            _character = collision.transform.parent.GetComponentInParent<InventoryManager>();
 
         if (_potentialWeaponPivot == null)
         {

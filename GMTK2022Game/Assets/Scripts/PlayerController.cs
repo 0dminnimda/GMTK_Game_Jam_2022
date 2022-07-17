@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private MainCharacter _character;
+    private InventoryManager _character;
 
     [SerializeField]
     private Rigidbody2D _rigidBody2D;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             Dodgeroll();
 
         if (Input.GetKey(KeyCode.Space))
-            _character.WeaponList.ToList().ForEach(x => { if (x != null) x.Action(); });
+            _character.Items.ToList().ForEach(x => { if (x != null) x.Action(); });
     }
 
     void FixedUpdate()

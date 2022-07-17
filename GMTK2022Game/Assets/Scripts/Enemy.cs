@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InventoryManager))]
 public class Enemy : MonoBehaviour
 {
 	[SerializeField]
@@ -10,26 +11,16 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float _rotationSpeed = 2f;
 
-	[SerializeField]
-	private GameObject[] _weaponPrefabs;
-
-	private Weapon[] _weapons;
+	private InventoryManager _inventory_manager;
 
 	[SerializeField]
-	private Rigidbody2D _rb;
-
-	[SerializeField]
-	private Transform[] _pivotPoints;
-
 	private GameObject _target;
+
 	private Vector3 _targetPos;
 
-	// Start is called before the first frame update
 	void Awake()
 	{
-		_weapons = new Weapon[4];
-		_target = FindObjectOfType<MainCharacter>().gameObject;
-		SpawnWeapons();
+		_inventory_manager = GetComponent<InventoryManager>();
 	}
 
 	void Start()
@@ -37,7 +28,6 @@ public class Enemy : MonoBehaviour
 		StartCoroutine(nameof(DoCheck));
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if(_target != null)
@@ -61,37 +51,12 @@ public class Enemy : MonoBehaviour
 	{
 		for (; ;)
 		{
-			foreach (Weapon wep in _weapons)
+			foreach (Weapon wep in _inventory_manager.Items)
 			{
 				if (wep != null)
 					wep.Action();
 			}
 			yield return new WaitForSeconds(1f);
-		}
-	}
-
-	private void SpawnWeapons()
-	{
-		for (int i = 0; i < _pivotPoints.Length; i++)
-		{
-			if (_weaponPrefabs[i] == null) 
-			{
-				_weapons[i] = null;
-				continue;
-			}
-
-			GameObject weaponObj = Instantiate(_weaponPrefabs[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
-
-			Weapon weaponComponent = weaponObj.GetComponent<Weapon>();
-			
-			_weapons[i] = weaponComponent;
-			weaponComponent.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Player);
-
-			FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
-			if (fixedJointComp != null)
-			{
-				fixedJointComp.connectedBody = _rb;
-			}
 		}
 	}
 }
