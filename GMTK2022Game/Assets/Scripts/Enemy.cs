@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-	[SerializeField]
-	private float _enemySpeed = 0.75f;
+    [SerializeField]
+    private float _enemySpeed = 0.75f;
 
-	[SerializeField]
-	private float _rotationSpeed = 2f;
+    [SerializeField]
+    private float _rotationSpeed = 2f;
 
-	[SerializeField]
-	private List<Weapon> _weapons;
+    [SerializeField]
+    private List<Weapon> _weapons;
 
     [SerializeField]
     private Pathfinding.AIPath _aIPath;
@@ -19,32 +19,30 @@ public class Enemy : MonoBehaviour
     private GameObject _target;
     private Vector3 _targetPos;
 
-	// Start is called before the first frame update
-	void Awake()
-	{
-		_target = FindObjectOfType<MainCharacter>().gameObject;
-	}
+    // Start is called before the first frame update
+    void Start()
+    {
+        _target = FindObjectOfType<MainCharacter>().gameObject;
 
-	void Start()
-	{
-		StartCoroutine(nameof(DoCheck));
-	}
+        StartCoroutine(nameof(DoCheck));
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (_aIPath.reachedDestination)
+        {
+            _targetPos = _target.transform.position;
+            RotateTowardsTarget();
+        }
         if(_target != null)
         {
-	        if (_aIPath.reachedDestination)
-	        {
-	            _targetPos = _target.transform.position;
-	            RotateTowardsTarget();
-	        }
             //_targetPos = _target.transform.position;
             //RotateTowardsTarget();
             //float step = _enemySpeed * Time.deltaTime;
             //transform.position = Vector2.MoveTowards(transform.position, _targetPos, step);
         }
+        
     }
 
     private void RotateTowardsTarget()
@@ -55,15 +53,15 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
     }
 
-	IEnumerator DoCheck()
-	{
-		for (; ;)
-		{
-			foreach (Weapon wep in _weapons)
-			{
-				wep.Action();
-			}
-			yield return new WaitForSeconds(1f);
-		}
-	}
+    IEnumerator DoCheck()
+    {
+        for (; ;)
+        {
+            foreach (Weapon wep in _weapons)
+            {
+                wep.Action();
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
 }
