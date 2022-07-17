@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3172791877740281106}
   m_Layer: 0
-  m_Name: Pivot 4
+  m_Name: Pivot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4424755406584627573}
   m_Layer: 0
-  m_Name: Pivot 1
+  m_Name: Pivot 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4225520781360019355}
   m_Layer: 0
-  m_Name: Pivot 3
+  m_Name: Pivot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371026004433675031}
   m_Layer: 0
-  m_Name: Pivot 2
+  m_Name: Pivot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

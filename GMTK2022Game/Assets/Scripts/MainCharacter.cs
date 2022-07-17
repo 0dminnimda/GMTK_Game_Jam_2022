@@ -22,11 +22,24 @@ public class MainCharacter : MonoBehaviour
 		SpawnWeapons();
     }
 
-	void Update()
+	public void SpawnWeapon(int index, GameObject weaponPrefab) 
 	{
-		
-	}
+		if (_weapons[index] != null)
+			Destroy(_weapons[index].gameObject);
 
+		GameObject weaponObj = Instantiate(weaponPrefab, _pivotPoints[index].position, _pivotPoints[index].rotation, gameObject.transform);
+
+		Weapon weaponComponent = weaponObj.GetComponent<Weapon>();
+
+		_weapons[index] = weaponComponent;
+		weaponComponent.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Enemy);
+
+		FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
+		if (fixedJointComp != null)
+		{
+			fixedJointComp.connectedBody = _rb;
+		}
+	}
 	private void SpawnWeapons() 
 	{
 		for (int i = 0; i < _pivotPoints.Length; i++)
@@ -37,18 +50,7 @@ public class MainCharacter : MonoBehaviour
 				continue;
 			}
 
-			GameObject weaponObj = Instantiate(_weaponPrefabs[i], _pivotPoints[i].position, _pivotPoints[i].rotation, gameObject.transform);
-
-			Weapon weaponComponent = weaponObj.GetComponent<Weapon>();
-
-			_weapons[i] = weaponComponent;
-			weaponComponent.SetDamageLayer(Assets.Scripts.Enums.DamageLayer.Enemy);
-
-			FixedJoint2D fixedJointComp = weaponObj.gameObject.GetComponent<FixedJoint2D>();
-			if (fixedJointComp != null)
-			{
-				fixedJointComp.connectedBody = _rb;
-			}
+			SpawnWeapon(i, _weaponPrefabs[i]);
 		}
 	}
 }

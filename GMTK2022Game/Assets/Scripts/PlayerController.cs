@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Rotation();
-        if (!_rolling && Input.GetKeyDown(KeyCode.Space))
+        if (!_rolling && Input.GetKeyDown(KeyCode.LeftShift))
             Dodgeroll();
 
-        if (Input.GetAxisRaw("Fire1") > 0)
+        if (Input.GetKey(KeyCode.Space))
             _character.WeaponList.ToList().ForEach(x => { if (x != null) x.Action(); });
     }
 

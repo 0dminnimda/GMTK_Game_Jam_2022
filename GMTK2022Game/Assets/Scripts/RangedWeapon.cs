@@ -23,7 +23,6 @@ public class RangedWeapon : Weapon
 	void Awake()
 	{
 		_parentRb = GetComponentInParent<Rigidbody2D>();
-		Debug.Log(_parentRb);
 	}
 
 	void Update()
@@ -33,8 +32,6 @@ public class RangedWeapon : Weapon
 
 	public override void Action()
 	{
-		Debug.Log(_parentRb);
-
 		if (Time.time < _nextActionTime)
             return;
 
