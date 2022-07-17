@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Healthbar : MonoBehaviour
 {
+    public float epsilon = 0.01f;
+
 	[SerializeField]
 	private Health health;
 
@@ -30,7 +32,7 @@ public class Healthbar : MonoBehaviour
 		healthbarPivot.localScale = new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f);
 		healthdropPivot.localScale = Vector3.Lerp(healthdropPivot.localScale, new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f), healthdropSpeed * Time.deltaTime);
 
-		if (healthdropPivot.localScale.x < 0.02) 
+		if (healthdropPivot.localScale.x < epsilon)
 		{
 			healthbarPivot.localScale = Vector3.zero;
 			healthdropPivot.localScale = Vector3.zero;
