@@ -46,7 +46,7 @@ public class CharacterChanger : MonoBehaviour
 		{
 			RefreshOptions();
 
-			Time.timeScale = 0f;
+			Time.timeScale = 0;
 			_changerMenu.SetActive(true);
 		}
 	}
@@ -84,7 +84,7 @@ public class CharacterChanger : MonoBehaviour
 		
 		
 
-		Time.timeScale = 1f;
+		Time.timeScale = 1;
 		_changerMenu.SetActive(false);
 	}
 }

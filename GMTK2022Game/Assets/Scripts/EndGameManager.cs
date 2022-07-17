@@ -34,17 +34,17 @@ public class EndGameManager : MonoBehaviour
                 ResumeGame();
             }
         }
-        if (!pauseGameScreen.active && player != null)
-            Time.timeScale = 1;
     }
 
     public void RestartGame() {
         JSAM.AudioManager.SetMusicVolume(0.0f);
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoToMainMenu() {
         JSAM.AudioManager.SetMusicVolume(0.0f);
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void PauseGame() {
@@ -52,6 +52,7 @@ public class EndGameManager : MonoBehaviour
         pauseGameScreen.SetActive(true);
     }
     public void ResumeGame() {
+        Time.timeScale = 1;
         pauseGameScreen.SetActive(false);
     }
 }
