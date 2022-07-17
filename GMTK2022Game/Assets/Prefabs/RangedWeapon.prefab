@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4473149308941539968}
   - component: {fileID: 4473149308941539971}
   - component: {fileID: 4473149308941539970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RangedWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
