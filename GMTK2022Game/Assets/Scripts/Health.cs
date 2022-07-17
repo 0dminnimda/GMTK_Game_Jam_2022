@@ -38,8 +38,10 @@ public class Health : MonoBehaviour
 				_currentHealth = 0;
 			else
 				_currentHealth -= amount;
+
 			if (_currentHealth <= 0 && !isHealthbarAttached)
 				Die();
+			// else handle it in health bar
 		}
 
 	}
