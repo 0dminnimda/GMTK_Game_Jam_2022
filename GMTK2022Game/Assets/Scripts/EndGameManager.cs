@@ -15,12 +15,16 @@ public class EndGameManager : MonoBehaviour
     [SerializeField]
     private GameObject pauseGameScreen;
 
+    [SerializeField]
+    private GameObject wonGameScreen;
+
 
     void Update()
     {
         if (player == null) {
             endGameScreen.SetActive(true);
         }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 1) {
