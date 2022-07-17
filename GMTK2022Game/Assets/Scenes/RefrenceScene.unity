@@ -563,8 +563,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.545375, y: -0.9941416}
-  m_Size: {x: 3.2538316, y: 3.3636913}
+  m_Offset: {x: -1.3123899, y: -0.9433727}
+  m_Size: {x: 4.2273836, y: 4.2612305}
   m_Direction: 0
 --- !u!114 &872655291
 MonoBehaviour:
@@ -581,7 +581,7 @@ MonoBehaviour:
   speed: 0.09
   player: {fileID: 6673282043731114791}
   animator: {fileID: 2146042616}
-  hitDelay: 2
+  hitDelay: 0.5
   damage: 1
   damageLayer: 0
 --- !u!4 &872655292

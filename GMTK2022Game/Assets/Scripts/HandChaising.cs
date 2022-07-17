@@ -11,7 +11,7 @@ public class HandChaising : MonoBehaviour
     public float speed = 5f;
     public Transform player;
     public Animator animator;
-    public int hitDelay = 2;
+    public float hitDelay = 0.5f;
     //public Health health;
     public int damage = 1;
     private bool inTrigger;
