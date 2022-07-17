@@ -112,6 +112,9 @@ public class WeaponPickup : MonoBehaviour
         if (((1 << collision.gameObject.layer) & _dragAndDropMask) == 0)
             return;
 
+        if (_character == null)
+            _character = collision.transform.parent.GetComponentInParent<MainCharacter>();
+
         if (_potentialWeaponPivot == null)
         {
             _potentialWeaponPivot = collision.gameObject;
