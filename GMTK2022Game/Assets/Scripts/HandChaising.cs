@@ -10,6 +10,7 @@ public class HandChaising : MonoBehaviour
 
     public float speed = 5f;
     public Transform player;
+    public Animator animator;
     public int hitDelay = 2;
     //public Health health;
     public int damage = 1;
@@ -30,6 +31,7 @@ public class HandChaising : MonoBehaviour
 
     IEnumerator WaitForHit(Health health)
     {
+        animator.SetTrigger("Smash");
         yield return new WaitForSeconds(hitDelay);
         print("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
         if (inTrigger) DealDamage(health);
