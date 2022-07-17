@@ -522,9 +522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af05d29f986ffbe4d8182b01cedfa2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: -1, y: 1}
   speed: 0
-  timer: 0
+  LightFrequency: 0
 --- !u!1001 &436329129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,9 +772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af05d29f986ffbe4d8182b01cedfa2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: 1, y: -1}
   speed: 0
-  timer: 0
+  LightFrequency: 0
 --- !u!114 &722034673 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4876440289230719506, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
@@ -1408,9 +1408,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af05d29f986ffbe4d8182b01cedfa2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: 1, y: 1}
   speed: 0
-  timer: 0
+  LightFrequency: 0
 --- !u!1 &1388568674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,9 +1755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af05d29f986ffbe4d8182b01cedfa2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  direction: {x: -1, y: -1}
   speed: 0
-  timer: 0
+  LightFrequency: 0
 --- !u!1001 &1682151650
 PrefabInstance:
   m_ObjectHideFlags: 0

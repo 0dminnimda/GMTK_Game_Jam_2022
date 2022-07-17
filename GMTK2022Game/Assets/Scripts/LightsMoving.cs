@@ -18,7 +18,7 @@ public class LightsMoving : MonoBehaviour
     void Start()
     {
         speed = 0.03f;
-        direction.x = 1;
+       //direction.x = 1;
         timer = 0;
         timerGrow = true;
         LightFrequency = 100;
@@ -32,7 +32,7 @@ public class LightsMoving : MonoBehaviour
         if (timer == LightFrequency)
         {
             timerGrow = false;
-            direction.x *= -1;
+            direction *= -1;
         }
         print(timer);
         if (timerGrow == false) timer -= 1;
