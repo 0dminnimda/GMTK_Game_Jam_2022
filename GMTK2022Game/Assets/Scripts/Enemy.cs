@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private float _enemySpeed = 0.75f;
+	[SerializeField]
+	private float _enemySpeed = 0.75f;
 
-    [SerializeField]
-    private float _rotationSpeed = 2f;
+	[SerializeField]
+	private float _rotationSpeed = 2f;
 
-    [SerializeField]
-    private List<Weapon> _weapons;
+	[SerializeField]
+	private List<Weapon> _weapons;
 
     [SerializeField]
     private Pathfinding.AIPath _aIPath;
@@ -19,13 +19,16 @@ public class Enemy : MonoBehaviour
     private GameObject _target;
     private Vector3 _targetPos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _target = FindObjectOfType<MainCharacter>().gameObject;
+	// Start is called before the first frame update
+	void Awake()
+	{
+		_target = FindObjectOfType<MainCharacter>().gameObject;
+	}
 
-        StartCoroutine(nameof(DoCheck));
-    }
+	void Start()
+	{
+		StartCoroutine(nameof(DoCheck));
+	}
 
     // Update is called once per frame
     void Update()
@@ -53,15 +56,15 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
     }
 
-    IEnumerator DoCheck()
-    {
-        for (; ;)
-        {
-            foreach (Weapon wep in _weapons)
-            {
-                wep.Shoot();
-            }
-            yield return new WaitForSeconds(1f);
-        }
-    }
+	IEnumerator DoCheck()
+	{
+		for (; ;)
+		{
+			foreach (Weapon wep in _weapons)
+			{
+				wep.Action();
+			}
+			yield return new WaitForSeconds(1f);
+		}
+	}
 }

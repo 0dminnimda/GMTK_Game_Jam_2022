@@ -5,38 +5,40 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Healthbar : MonoBehaviour
 {
-    [SerializeField]
-    private Health health;
+    public float epsilon = 0.01f;
 
-    [SerializeField]
-    private Transform healthbar;
-    [SerializeField]
-    private Transform healthbarPivot;
-    [SerializeField]
-    private Transform healthdropPivot;
-    [SerializeField]
-    private float healthdropSpeed;
-    [SerializeField]
-    private Vector3 followOffset;
+	[SerializeField]
+	private Health health;
 
-    void Update()
-    {
-        if (gameObject != null)
-        {
-            healthbar.transform.position = gameObject.transform.position + followOffset;
-            healthbar.transform.rotation = Quaternion.identity;
-        }
+	[SerializeField]
+	private Transform healthbar;
+	[SerializeField]
+	private Transform healthbarPivot;
+	[SerializeField]
+	private Transform healthdropPivot;
+	[SerializeField]
+	private float healthdropSpeed;
+	[SerializeField]
+	private Vector3 followOffset;
 
-        healthbarPivot.localScale = new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f);
-        healthdropPivot.localScale = Vector3.Lerp(healthdropPivot.localScale, new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f), healthdropSpeed * Time.deltaTime);
+	void Update()
+	{
+		if (gameObject != null)
+		{
+			healthbar.transform.position = gameObject.transform.position + followOffset;
+			healthbar.transform.rotation = Quaternion.identity;
+		}
 
-        if (healthdropPivot.localScale.x < 0.02) 
-        {
-            healthbarPivot.localScale = Vector3.zero;
-            healthdropPivot.localScale = Vector3.zero;
+		healthbarPivot.localScale = new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f);
+		healthdropPivot.localScale = Vector3.Lerp(healthdropPivot.localScale, new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f), healthdropSpeed * Time.deltaTime);
 
-            health.Die();
-            Destroy(gameObject);
-        }
-    }
+		if (healthdropPivot.localScale.x < epsilon)
+		{
+			healthbarPivot.localScale = Vector3.zero;
+			healthdropPivot.localScale = Vector3.zero;
+
+			health.Die();
+			Destroy(gameObject);
+		}
+	}
 }
