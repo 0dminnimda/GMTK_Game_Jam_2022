@@ -2,6 +2,7 @@ using Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class Health : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class Health : MonoBehaviour
         {
 			if (layer != _damageLayer)
 				return;
+			JSAM.AudioManager.PlaySound(Sounds.damage);
 			if (amount > _currentMaxHealth)
 				_currentHealth = 0;
 			else
