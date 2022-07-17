@@ -119,6 +119,8 @@ MonoBehaviour:
   playerBullet: 1
   baseSpeed: 20
   missChance: 0
+  deleteIn: 30
+  destroyOnHit: 1
 --- !u!1 &5838742926994875398
 GameObject:
   m_ObjectHideFlags: 0

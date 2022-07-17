@@ -608,3 +608,5 @@ MonoBehaviour:
   playerBullet: 1
   baseSpeed: 0
   missChance: 0
+  deleteIn: 9999
+  destroyOnHit: 0
