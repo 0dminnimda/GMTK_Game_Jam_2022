@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3782323453640756560}
   - component: {fileID: 3782323453640756561}
-  - component: {fileID: 199533833822195764}
+  - component: {fileID: 9220337234182016612}
   - component: {fileID: 199533833822195765}
   - component: {fileID: 199533833822195766}
   - component: {fileID: 7557534465027455102}
@@ -312,7 +312,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &199533833822195764
+--- !u!114 &9220337234182016612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3782323453640756563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f1c56876065bb42af30703c7b72c4f, type: 3}
+  m_Script: {fileID: 11500000, guid: d885f2ab85b5aa742836efcb3f0e42d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPrefabs:
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fdbf30f914360419d95e51edf3f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 199533833822195764}
+  _character: {fileID: 0}
   _rigidBody2D: {fileID: 7557534465027455102}
   _spriteRenderer: {fileID: 3782323453640756561}
   _health: {fileID: 199533833822195766}

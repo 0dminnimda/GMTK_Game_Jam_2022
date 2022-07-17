@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3712096399513324310}
   - component: {fileID: 3712096399513324311}
   - component: {fileID: 3712096399513324305}
+  - component: {fileID: 6556700928410154287}
   - component: {fileID: 377569891063535216}
   - component: {fileID: 8005226041572785720}
   - component: {fileID: 8005226041572785721}
@@ -170,6 +171,30 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _rb: {fileID: 8005226041572785720}
+  _pivotPoints:
+  - {fileID: 4424755406584627573}
+  - {fileID: 371026004433675031}
+  - {fileID: 4225520781360019355}
+  - {fileID: 3172791877740281106}
+--- !u!114 &6556700928410154287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712096399513324309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d885f2ab85b5aa742836efcb3f0e42d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _pickupPrefab: {fileID: 139271603735864982, guid: f96e3dfa477d97f48b4b9ec69ef6161b, type: 3}
   _rb: {fileID: 8005226041572785720}
   _pivotPoints:
   - {fileID: 4424755406584627573}
