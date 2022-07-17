@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using JSAM;
 
 public class EndGameManager : MonoBehaviour
 {
@@ -11,19 +12,41 @@ public class EndGameManager : MonoBehaviour
     [SerializeField]
     private GameObject endGameScreen;
 
+    [SerializeField]
+    private GameObject pauseGameScreen;
+
 
     void Update()
     {
         if (player == null) {
             endGameScreen.SetActive(true);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1) {
+                PauseGame();
+            } else {
+                ResumeGame();
+            }
+        }
+        if (!pauseGameScreen.active)
+            Time.timeScale = 1;
     }
 
     public void RestartGame() {
+        JSAM.AudioManager.SetMusicVolume(0.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void GoToMainMenu() { 
-    
+    public void GoToMainMenu() {
+        JSAM.AudioManager.SetMusicVolume(0.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void PauseGame() {
+        Time.timeScale = 0;
+        pauseGameScreen.SetActive(true);
+    }
+    public void ResumeGame() {
+        pauseGameScreen.SetActive(false);
     }
 }
