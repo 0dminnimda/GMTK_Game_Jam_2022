@@ -18,8 +18,12 @@ public class Health : MonoBehaviour
 	public bool ignoreDamage;
 	public DamageLayer DamageLayer => _damageLayer;
 
+	private bool isHealthbarAttached;
+
 	public void Start()
 	{
+		isHealthbarAttached = gameObject.GetComponentInChildren<Healthbar>() != null;
+
 		if (_currentHealth > _currentMaxHealth)
 			_currentHealth = _currentMaxHealth;
 	}
@@ -34,7 +38,7 @@ public class Health : MonoBehaviour
 				_currentHealth = 0;
 			else
 				_currentHealth -= amount;
-			if (_currentHealth <= 0)
+			if (_currentHealth <= 0 && !isHealthbarAttached)
 				Die();
 		}
 
