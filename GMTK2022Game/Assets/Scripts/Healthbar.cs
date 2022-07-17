@@ -21,10 +21,10 @@ public class Healthbar : MonoBehaviour
 
 	void Update()
 	{
-		if (gameObject != null)
+		if (healthbar != null)
 		{
-			healthbar.transform.position = gameObject.transform.position + followOffset;
-			healthbar.transform.rotation = Quaternion.identity;
+			transform.position = healthbar.transform.position + followOffset;
+			transform.rotation = Quaternion.identity;
 		}
 
 		healthbarPivot.localScale = new Vector3((float)health.CurrentHealth / (float)health.CurrentMaxHealth, 1f, 1f);
