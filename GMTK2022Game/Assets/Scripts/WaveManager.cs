@@ -102,7 +102,7 @@ public class WaveManager : MonoBehaviour
         int i = 0;
         while (i < MaxNumberOfEnemies())
 		{
-            Vector2 pos = RandomPosition(_bounds);
+            Vector2 pos = RandomCirclePosition(_bounds, Random.Range(2,3)/3f);
             var col = Physics2D.OverlapBox(pos, maxSize, 0);
             if (!col)
                 positions.Add(new Vector3(pos.x, pos.y, 0));
@@ -119,6 +119,14 @@ public class WaveManager : MonoBehaviour
     {
         return new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
     }
+
+    private Vector2 RandomCirclePosition(Bounds bounds, float segment)
+	{
+        var center = bounds.center;
+        var radius = bounds.max.x - center.x;
+        var angle = Random.Range(0, Mathf.PI * 2);
+        return new Vector2(Mathf.Sin(angle) * segment * radius, Mathf.Cos(angle) * segment * radius);
+	}
 
     public void UpdateSpawn()
     {
