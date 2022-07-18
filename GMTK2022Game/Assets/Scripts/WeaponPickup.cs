@@ -87,7 +87,7 @@ public class WeaponPickup : MonoBehaviour
         if (!_isDragged)
             return;
 
-        if (((1 << collision.gameObject.layer) & _dragAndDropMask) == 0)
+        if ((collision.gameObject.layer & _dragAndDropMask) != _dragAndDropMask)
             return;
 
         if (_potentialWeaponPivot != null)
