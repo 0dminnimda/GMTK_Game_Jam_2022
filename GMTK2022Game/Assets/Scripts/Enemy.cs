@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,14 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
     private Pathfinding.AIPath _aIPath;
 
-	[SerializeField]
-    private GameObject _target;
+    public GameObject _target;
     private Vector3 _targetPos;
 
 	void Awake()
 	{
+		_target = FindObjectOfType<MainCharacter>().gameObject;
+		var dist = gameObject.GetComponent<AIDestinationSetter>();
+		dist.target = _target.transform;
 		_inventory_manager = GetComponent<InventoryManager>();
 	}
 
@@ -35,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if(_target != null)
         {
-	        if (_aIPath.reachedDestination)
+	        if (!_aIPath.reachedDestination)
 	        {
 	            _targetPos = _target.transform.position;
 	            RotateTowardsTarget();

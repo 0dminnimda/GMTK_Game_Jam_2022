@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8758042107771579726}
   - component: {fileID: 1096858095352619400}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EmptyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,10 +386,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPrefabs:
-  - {fileID: 4876440289230719507, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
-  - {fileID: 4876440289230719507, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
   - {fileID: 0}
-  - {fileID: 4876440289230719507, guid: c8be5a708f5a7b54fb933d657dd83e19, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _pickupPrefab: {fileID: 139271603735864982, guid: f96e3dfa477d97f48b4b9ec69ef6161b, type: 3}
   _rb: {fileID: 8005226041572785720}
   _pivotPoints:
