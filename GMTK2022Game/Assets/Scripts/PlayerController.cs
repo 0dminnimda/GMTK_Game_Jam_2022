@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Rotation();
-        if (!_rolling && Input.GetKeyDown(KeyCode.LeftShift))
+        if (!_rolling && Input.GetKey(KeyCode.LeftShift))
             Dodgeroll();
 
         if (Input.GetKey(KeyCode.Space))
