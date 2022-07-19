@@ -71,7 +71,7 @@ public class LimosPlayerController : MonoBehaviour
     private void Update()
     {
         _moving = _rigidBody2D.velocity.magnitude > 1f;
-        if (_moving && _rolling)
+        if (_moving)
         {
             if(_siderolltimer <= 0f)
             {
