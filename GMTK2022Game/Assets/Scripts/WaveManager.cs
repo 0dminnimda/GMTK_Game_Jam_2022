@@ -35,6 +35,8 @@ public class WaveManager : MonoBehaviour
     private bool spawningWave = false;
     public int waveInd;
 
+    public int enemyCount = 10;
+
     void Awake()
     {
         var table1 = new ChanceTable(new uint[] { 10, 3, 0, 0, 0 });
@@ -100,7 +102,7 @@ public class WaveManager : MonoBehaviour
         });
 
         int i = 0;
-        while (i < MaxNumberOfEnemies())
+        while (i < enemyCount)
 		{
             Vector2 pos = RandomCirclePosition(_bounds, Random.Range(2,3)/3f);
             var col = Physics2D.OverlapBox(pos, maxSize, 0);
@@ -155,7 +157,7 @@ public class WaveManager : MonoBehaviour
         RemoveDestroyedEnemies();
 
         Wave wave = GetWave();
-        for (int i = 0; i < MaxNumberOfEnemies(); i++)
+        for (int i = 0; i < enemyCount; i++)
         {
             SpawnEnemy(i, wave);
             // Destroy(o, 4f);
@@ -212,7 +214,7 @@ public class WaveManager : MonoBehaviour
     GameObject SpawnEnemy(int ind, Wave wave)
     {
         int i = 0;
-        while(i < MaxNumberOfEnemies())
+        while(i < enemyCount)
 		{
             Vector3 pos = _enemySpawnPositions[Random.Range(0, _enemySpawnPositions.Length)];
             var randenemy = wave.table.GetRandomItem(ref _enemies);
@@ -226,6 +228,4 @@ public class WaveManager : MonoBehaviour
         }
         return null;
     }
-
-    private int MaxNumberOfEnemies() => 20;
 }
