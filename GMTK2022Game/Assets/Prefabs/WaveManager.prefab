@@ -48,12 +48,13 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 30, y: 30, z: 0}
   _enemies:
-  - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
-  - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
-  - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
-  - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
-  - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
+  - {fileID: 3712096399513324309, guid: 807d42f4c56fad14bbf6b053df788bc1, type: 3}
+  - {fileID: 3712096399513324309, guid: 807d42f4c56fad14bbf6b053df788bc1, type: 3}
+  - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
+  - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
+  - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
   timeBeforeFirstWave: 5
   timeBetweenWaves: 15
   waveCountdown: 0
   waveInd: 0
+  enemyCount: 10

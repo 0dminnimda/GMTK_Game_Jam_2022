@@ -1099,46 +1099,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2938848354056002962, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _main_character
-      value: 
-      objectReference: {fileID: 6673282043731114788}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _bounds.m_Extent.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _bounds.m_Extent.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 3712096399513324309, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 3712096399513324309, guid: dd2123f982092e14db1c8a9e2c40fbf2, type: 3}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.data[3]
-      value: 
-      objectReference: {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
-    - target: {fileID: 2938848354056002967, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
-      propertyPath: _enemies.Array.data[4]
-      value: 
-      objectReference: {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c15743224eb084bb2ff85daf25bb7d, type: 3}
 --- !u!1001 &4754339650051489583
