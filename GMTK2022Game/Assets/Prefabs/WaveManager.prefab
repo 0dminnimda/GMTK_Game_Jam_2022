@@ -54,6 +54,6 @@ MonoBehaviour:
   - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
   - {fileID: 6716271254047723133, guid: 4857e19b58dbaa045a2cd85b2b11013e, type: 3}
   timeBeforeFirstWave: 5
-  timeBetweenWaves: 30
+  timeBetweenWaves: 15
   waveCountdown: 0
   waveInd: 0
