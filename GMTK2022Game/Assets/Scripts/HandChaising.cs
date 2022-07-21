@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
-
 public class HandChaising : MonoBehaviour
 {
 
@@ -26,14 +22,13 @@ public class HandChaising : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Awake();
     }
 
     IEnumerator WaitForHit(Health health)
     {
         animator.SetTrigger("Smash");
         yield return new WaitForSeconds(hitDelay);
-        print("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
+        // print("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
         if (inTrigger) DealDamage(health);
         yield break;
     }
@@ -50,7 +45,7 @@ public class HandChaising : MonoBehaviour
         if (collision.gameObject.name == "MainCharacter")
         {
             inTrigger = true;
-            print("Found the Player");
+            // print("Found the Player");
             StartCoroutine(WaitForHit(health));
 
         }
