@@ -38,7 +38,6 @@ public class Healthbar : MonoBehaviour
 			healthdropPivot.localScale = Vector3.zero;
 
 			health.Die();
-			Destroy(gameObject);
 		}
 	}
 }
