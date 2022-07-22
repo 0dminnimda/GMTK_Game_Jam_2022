@@ -34,8 +34,7 @@ public class EndGameManager : MonoBehaviour
             Time.timeScale = 0;
             endGameScreen.SetActive(true);
         }
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 1) {
                 PauseGame();
