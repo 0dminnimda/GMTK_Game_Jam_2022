@@ -18,9 +18,18 @@ public class EndGameManager : MonoBehaviour
     [SerializeField]
     private GameObject wonGameScreen;
 
+    [SerializeField]
+    private bool loadingLevel;
+
+    void Awake()
+    {
+        loadingLevel = false;
+    }
 
     void Update()
     {
+        if (loadingLevel) return;
+
         if (player == null) {
             Time.timeScale = 0;
             endGameScreen.SetActive(true);
@@ -39,12 +48,14 @@ public class EndGameManager : MonoBehaviour
     public void RestartGame() {
         JSAM.AudioManager.SetMusicVolume(0.0f);
         Time.timeScale = 1;
+        loadingLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoToMainMenu() {
         JSAM.AudioManager.SetMusicVolume(0.0f);
         Time.timeScale = 1;
+        loadingLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void PauseGame() {
