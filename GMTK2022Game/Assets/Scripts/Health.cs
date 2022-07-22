@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
 
 			if (_currentHealth <= 0 && !isHealthbarAttached)
 				Die();
-			// else handle it in health bar
+			// else Die() in health bar
 		}
 
 	}
