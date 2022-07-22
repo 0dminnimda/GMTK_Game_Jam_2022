@@ -81,8 +81,6 @@ public class CharacterChanger : MonoBehaviour
 
 		Destroy(_currentCharacterInstance.gameObject);
 		_currentCharacterInstance = Instantiate(_currentCharacter, _mainCharacter.transform);
-		
-		
 
 		Time.timeScale = 1;
 		_changerMenu.SetActive(false);
