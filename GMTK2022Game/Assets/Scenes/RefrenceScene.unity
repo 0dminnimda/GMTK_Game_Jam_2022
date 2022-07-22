@@ -1413,6 +1413,7 @@ MonoBehaviour:
   endGameScreen: {fileID: 187656021}
   pauseGameScreen: {fileID: 1226674891}
   wonGameScreen: {fileID: 717100241}
+  loadingLevel: 0
 --- !u!4 &1278800593
 Transform:
   m_ObjectHideFlags: 0
