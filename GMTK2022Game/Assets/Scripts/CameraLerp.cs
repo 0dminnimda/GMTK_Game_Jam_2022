@@ -9,6 +9,7 @@ public class CameraLerp : MonoBehaviour
 
     [SerializeField]
     private float _lerpPower;
+
     void FixedUpdate()
     {
         if (_target == null)

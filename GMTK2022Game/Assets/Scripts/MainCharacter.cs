@@ -5,10 +5,15 @@ using JSAM;
 
 public class MainCharacter : MonoBehaviour
 {
-	public AudioSource mainMusic;
-	// Start is called before the first frame update
+	public AudioSource mainMusic;  // public static AudioSource mainMusic;
+
 	void Start()
 	{
-		mainMusic = JSAM.AudioManager.PlayMusic(Music.main_music);
+		if (JSAM.AudioManager.GetMusicVolume() != 0.0f)
+			mainMusic = JSAM.AudioManager.PlayMusic(Music.main_music);
+		else {
+			JSAM.AudioManager.SetMusicVolume(1.0f);
+			JSAM.AudioManager.SetMusicPlaybackPosition(0);
+		}
 	}
 }
