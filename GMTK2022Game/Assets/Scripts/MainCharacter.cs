@@ -5,13 +5,8 @@ using JSAM;
 
 public class MainCharacter : MonoBehaviour
 {
-	[SerializeField]
-	private List<Weapon> _weapons;
+	public AudioSource mainMusic;  // public static AudioSource mainMusic;
 
-	public List<Weapon> WeaponList => _weapons;
-	public static AudioSource mainMusic;
-	
-	// Start is called before the first frame update
 	void Start()
 	{
 		if (JSAM.AudioManager.GetMusicVolume() != 0.0f)
@@ -20,11 +15,5 @@ public class MainCharacter : MonoBehaviour
 			JSAM.AudioManager.SetMusicVolume(1.0f);
 			JSAM.AudioManager.SetMusicPlaybackPosition(0);
 		}
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		
 	}
 }

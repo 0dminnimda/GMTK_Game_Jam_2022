@@ -22,8 +22,8 @@ public class MeleeWeapon : Weapon
 
 	private void DealDamage(Health health)
 	{
-		SoundDamage();
-		health.DealDamage(_damage, _damageLayer);
+		if (health.DealDamage(_damage, _damageLayer))
+			SoundDamage();
 	}
 
 	private void SoundDamage() {
@@ -33,6 +33,7 @@ public class MeleeWeapon : Weapon
 	private void SoundMiss() {
 		JSAM.AudioManager.PlaySound(Sounds.sword_miss, transform);
 	}
+
 	public override void Action() { }
 
 }

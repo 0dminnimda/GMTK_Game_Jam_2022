@@ -1,7 +1,9 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InventoryManager))]
 public class Enemy : MonoBehaviour
 {
 	[SerializeField]
@@ -10,19 +12,20 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private float _rotationSpeed = 2f;
 
-	[SerializeField]
-	private List<Weapon> _weapons;
+	private InventoryManager _inventory_manager;
 
-    [SerializeField]
+	[SerializeField]
     private Pathfinding.AIPath _aIPath;
 
-    private GameObject _target;
+    public GameObject _target;
     private Vector3 _targetPos;
 
-	// Start is called before the first frame update
 	void Awake()
 	{
 		_target = FindObjectOfType<MainCharacter>().gameObject;
+		var dist = gameObject.GetComponent<AIDestinationSetter>();
+		dist.target = _target.transform;
+		_inventory_manager = GetComponent<InventoryManager>();
 	}
 
 	void Start()
@@ -35,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if(_target != null)
         {
-	        if (_aIPath.reachedDestination)
+	        if (!_aIPath.reachedDestination)
 	        {
 	            _targetPos = _target.transform.position;
 	            RotateTowardsTarget();
@@ -59,9 +62,10 @@ public class Enemy : MonoBehaviour
 	{
 		for (; ;)
 		{
-			foreach (Weapon wep in _weapons)
+			foreach (Weapon wep in _inventory_manager.Items)
 			{
-				wep.Action();
+				if (wep != null)
+					wep.Action();
 			}
 			yield return new WaitForSeconds(1f);
 		}
