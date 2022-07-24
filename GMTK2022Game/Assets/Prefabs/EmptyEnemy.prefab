@@ -225,6 +225,9 @@ MonoBehaviour:
   _currentMaxHealth: 3
   _damageLayer: 1
   ignoreDamage: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4960193649248131589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +312,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.3
   pickNextWaypointDist: 0.7
-  endReachedDistance: 5
+  endReachedDistance: 3
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
