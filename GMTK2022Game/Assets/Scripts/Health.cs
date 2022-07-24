@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using JSAM;
 
 public class Health : MonoBehaviour
 {
@@ -30,21 +31,24 @@ public class Health : MonoBehaviour
 			_currentHealth = _currentMaxHealth;
 	}
 
-	public void DealDamage(int amount, DamageLayer layer)
+	// return if the damage was taken
+	public bool DealDamage(int amount, DamageLayer layer)
 	{
-        if (!ignoreDamage)
-        {
-			if (layer != _damageLayer)
-				return;
-			if (amount > _currentMaxHealth)
-				_currentHealth = 0;
-			else
-				_currentHealth -= amount;
+        if (ignoreDamage || (layer != _damageLayer))
+			return false;
 
-			if (_currentHealth <= 0 && !isHealthbarAttached)
-				Die();
-			// else handle it in health bar
-		}
+		JSAM.AudioManager.PlaySound(Sounds.damage);
+
+		if (amount > _currentMaxHealth)
+			_currentHealth = 0;
+		else
+			_currentHealth -= amount;
+
+		if (_currentHealth <= 0 && !isHealthbarAttached)
+			Die();
+		// else Die() in health bar
+
+		return true;
 
 	}
 

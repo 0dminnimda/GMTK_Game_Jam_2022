@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8686684358422203196}
   - component: {fileID: -3220731550021333602}
   - component: {fileID: 8686684358422203197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StaticWell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8686684358492653810}
   - component: {fileID: 8686684358492653811}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8144088915510133605}
   - component: {fileID: 8144088915510133603}
   - component: {fileID: 8144088915510133602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DynamicBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8144088916265257228}
   - component: {fileID: 8144088916265257226}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
