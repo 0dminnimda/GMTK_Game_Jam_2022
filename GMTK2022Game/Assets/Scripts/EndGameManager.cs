@@ -55,7 +55,7 @@ public class EndGameManager : MonoBehaviour
         JSAM.AudioManager.SetMusicVolume(0.0f);
         Time.timeScale = 1;
         loadingLevel = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void PauseGame() {
         Time.timeScale = 0;
