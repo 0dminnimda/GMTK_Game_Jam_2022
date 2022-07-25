@@ -49,7 +49,7 @@ MonoBehaviour:
     m_Extent: {x: 30, y: 30, z: 0}
   _enemies:
   - {fileID: 3712096399513324309, guid: 807d42f4c56fad14bbf6b053df788bc1, type: 3}
-  - {fileID: 3712096399513324309, guid: 807d42f4c56fad14bbf6b053df788bc1, type: 3}
+  - {fileID: 3712096399513324309, guid: 1ff835a5316ee7e49b510031a5e621b8, type: 3}
   - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
   - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
   - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
