@@ -801,10 +801,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2748483933874567652, guid: d141f8cc6cae1a845b634f90a5b5396b, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4754339649460803623, guid: d141f8cc6cae1a845b634f90a5b5396b, type: 3}
       propertyPath: m_RootOrder
       value: 6

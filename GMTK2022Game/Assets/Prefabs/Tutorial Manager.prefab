@@ -59,7 +59,7 @@ MonoBehaviour:
   _pickUps: {fileID: 7544765051820134115}
   _level: {fileID: 0}
   _lightsAnim: {fileID: 0}
-  _waitTillStart: 2
+  _waitTillStart: 1.5
   _maxWeapons: 2
 --- !u!1 &7544765051820134115
 GameObject:
