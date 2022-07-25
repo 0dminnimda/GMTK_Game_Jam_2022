@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4876440289230719509}
   - component: {fileID: 4876440289230719511}
   - component: {fileID: 4876440289230719510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MeleeWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
