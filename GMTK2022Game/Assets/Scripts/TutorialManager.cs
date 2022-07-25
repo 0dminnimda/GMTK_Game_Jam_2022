@@ -12,56 +12,85 @@ public class TutorialManager : MonoBehaviour
     private GameObject _enemyOnMap;
 
     [SerializeField]
-    private GameObject _player;
+    private InventoryManager _player;
 
-    private bool _isEnemyActive = false;
+    [SerializeField]
+    private GameObject _tutorialBounds;
+
+    [SerializeField]
+    private GameObject _pickUps;
+
+    [SerializeField]
+    private GameObject _level;
+
+    [SerializeField]
+    private Animator _lightsAnim;
+
+    [SerializeField]
+    private float _waitTillStart = 1f;
+
+    [SerializeField]
+    private int _maxWeapons = 2;
 
     private void Update()
     {
         if (_popUpIndex == 0)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
-                _popUpIndex++;
+                Progress();
         }
         else if (_popUpIndex == 1)
         {
-            _popUps[0].SetActive(false);
-            _popUps[1].SetActive(true);
             if (Input.GetKeyDown(KeyCode.LeftShift))
-                _popUpIndex++;
+                Progress();
         }
         else if (_popUpIndex == 2)
         {
-            _popUps[1].SetActive(false);
-            _popUps[2].SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-                _popUpIndex++;
+            _pickUps.SetActive(true);
+
+            int left = _maxWeapons;
+
+            foreach (var i in _player.Items)
+                if (i != null)
+                    left--;
+
+            if (left <= 0)
+                Progress();
         }
         else if (_popUpIndex == 3)
         {
-            if (_isEnemyActive)
-                return;
-
-            _popUps[2].SetActive(false);
-            _popUps[3].SetActive(true);
-
-            _enemyOnMap.SetActive(true);
-            _enemyOnMap.GetComponent<Health>().OnDeath.AddListener(() => _popUpIndex++);
-            _enemyOnMap.transform.position = new Vector3(0f, 0f);
-
-            _isEnemyActive = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+                Progress();
         }
         else if (_popUpIndex == 4)
         {
-            _popUps[3].SetActive(false);
-            _popUps[4].SetActive(true);
-
-            StartCoroutine(LoadGame());
+            if (_enemyOnMap != null)
+                _enemyOnMap.SetActive(true);
+            else
+                Progress();
+        }
+        else if (_popUpIndex == 5)
+        {
+            _popUpIndex++;  // special last progress
+            StartCoroutine(LoadGame(_popUpIndex - 1));
         }
     }
-    private IEnumerator LoadGame() 
+
+    void Progress()
     {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _popUps[_popUpIndex].SetActive(false);
+        _popUpIndex++;
+        if (_popUpIndex < _popUps.Length)
+            _popUps[_popUpIndex].SetActive(true);
+    }
+
+    private IEnumerator LoadGame(int index)
+    {
+        yield return new WaitForSeconds(_waitTillStart);
+        _lightsAnim.Play("Tutorial Lights");
+        _level.SetActive(true);
+        _tutorialBounds.SetActive(false);
+        gameObject.SetActive(false);
+        _popUps[index].SetActive(false);
     }
 }
