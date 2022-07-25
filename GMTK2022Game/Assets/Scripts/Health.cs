@@ -2,7 +2,6 @@ using Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using JSAM;
 
 public class Health : MonoBehaviour
@@ -22,7 +21,6 @@ public class Health : MonoBehaviour
 
 	private bool isHealthbarAttached;
 
-	public UnityEvent OnDeath;
 	public void Start()
 	{
 		isHealthbarAttached = gameObject.GetComponentInChildren<Healthbar>() != null;
@@ -62,7 +60,6 @@ public class Health : MonoBehaviour
 
 	public void Die()
 	{
-		OnDeath.Invoke();
 		Destroy(gameObject);
 	}
 }
