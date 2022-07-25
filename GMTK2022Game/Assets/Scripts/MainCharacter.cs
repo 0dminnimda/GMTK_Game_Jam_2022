@@ -5,21 +5,15 @@ using JSAM;
 
 public class MainCharacter : MonoBehaviour
 {
-	[SerializeField]
-	private List<Weapon> _weapons;
+	public AudioSource mainMusic;  // public static AudioSource mainMusic;
 
-	public List<Weapon> WeaponList => _weapons;
-	
-	public AudioSource mainMusic;
-	// Start is called before the first frame update
 	void Start()
-	{	
-		mainMusic = JSAM.AudioManager.PlayMusic(Music.main_music);
-	}
-
-	// Update is called once per frame
-	void Update()
 	{
-		
+		if (JSAM.AudioManager.GetMusicVolume() != 0.0f)
+			mainMusic = JSAM.AudioManager.PlayMusic(Music.main_music);
+		else {
+			JSAM.AudioManager.SetMusicVolume(1.0f);
+			JSAM.AudioManager.SetMusicPlaybackPosition(0);
+		}
 	}
 }

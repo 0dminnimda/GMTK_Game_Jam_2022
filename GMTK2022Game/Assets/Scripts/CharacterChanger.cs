@@ -46,7 +46,7 @@ public class CharacterChanger : MonoBehaviour
 		{
 			RefreshOptions();
 
-			Time.timeScale = 0f;
+			Time.timeScale = 0;
 			_changerMenu.SetActive(true);
 		}
 	}
@@ -81,10 +81,8 @@ public class CharacterChanger : MonoBehaviour
 
 		Destroy(_currentCharacterInstance.gameObject);
 		_currentCharacterInstance = Instantiate(_currentCharacter, _mainCharacter.transform);
-		
-		
 
-		Time.timeScale = 1f;
+		Time.timeScale = 1;
 		_changerMenu.SetActive(false);
 	}
 }
