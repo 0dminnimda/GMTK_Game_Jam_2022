@@ -17,7 +17,6 @@ public class Projectile : MonoBehaviour
 	private DamageLayer _damageLayer;
 	private void Awake()
 	{
-		Debug.Log("Projectile created!", gameObject);
 		Destroy(gameObject, _lifetime);
 	}
 
@@ -32,7 +31,6 @@ public class Projectile : MonoBehaviour
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("Collision! " + collision.ToString());
 		var health = collision.gameObject.GetComponent<Health>();
 		SelfDestruct();
 		if (health == null)

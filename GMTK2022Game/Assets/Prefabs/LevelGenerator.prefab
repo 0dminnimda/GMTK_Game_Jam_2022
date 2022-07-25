@@ -45,14 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _possibleDynamicObstacles:
-  - {fileID: 3584223087685970046, guid: aba0a72f31ca6f9419b068a0cad9bb99, type: 3}
-  - {fileID: 8144088915510133604, guid: 82bb2c05bd0067941bfd95ec77cbb0ef, type: 3}
+  - {fileID: 6579395362515801568, guid: 942f9f8a1e5b6d9459f3abf8d361ef95, type: 3}
   _possibleStaticObstacles:
-  - {fileID: 2979338022520670399, guid: 0712acf974ca2144e944fef575a2f40d, type: 3}
-  - {fileID: 8686684358422203198, guid: 2e3a9070ef11b1d4c87a4fbe6f23445b, type: 3}
-  _densityDynamicObstacles: 0.361
-  _densityStaticObstacles: 0.583
+  - {fileID: 185503895336973299, guid: 08836a4f0375bb042816e37dd0327bc5, type: 3}
+  _densityDynamicObstacles: 0.285
+  _densityStaticObstacles: 0.452
   _passes: 40
   _boundingBox:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 50, y: 50, z: 0}
+    m_Extent: {x: 40, y: 30, z: 0}

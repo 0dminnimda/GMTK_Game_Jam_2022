@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3584223087685970044}
   - component: {fileID: 3584223087685970043}
   - component: {fileID: 3584223087685970045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DynamicCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3584223088882494630}
   - component: {fileID: 3584223088882494629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
