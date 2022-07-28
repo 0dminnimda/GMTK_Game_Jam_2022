@@ -51,10 +51,10 @@ MonoBehaviour:
   - {fileID: 3712096399513324309, guid: 807d42f4c56fad14bbf6b053df788bc1, type: 3}
   - {fileID: 3712096399513324309, guid: 1ff835a5316ee7e49b510031a5e621b8, type: 3}
   - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
-  - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
-  - {fileID: 3712096399513324309, guid: 2ab9c4b1498db6e42bacf0a53c145d97, type: 3}
+  - {fileID: 3712096399513324309, guid: 37f02ea5ade802744a5ec15ac7bb9c69, type: 3}
   timeBeforeFirstWave: 5
   timeBetweenWaves: 15
   waveCountdown: 0
   waveInd: 0
   enemyCount: 10
+  initTimeToSpawn: 0.3
