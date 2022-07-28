@@ -134,14 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pathfinder (Lol APEX Legends reference)
       objectReference: {fileID: 0}
-    - target: {fileID: 7140740884667038606, guid: 1cea4581a3ca9274d9410f1430878dca, type: 3}
-      propertyPath: showNavGraphs
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7140740884667038606, guid: 1cea4581a3ca9274d9410f1430878dca, type: 3}
-      propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAYIexMuH5QYQIAABcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMFymzAQ/RWPzk1GJCYJvbXEcXpI4qnbyYWLIi1GYyExkojtZPzvXQkw1J2eEO+93X27WvgkUrsGuDd2aaV4MgLI1xkJZ/JlNpKPsGcbo9fyAwbNqxS+CiIWNT+ZlwbxJIQ5U4O3kn/TGxXEFMFWy9LYeiE2kBvnHcIlUw6QssaHaI3Q54zs8XGRhZADnq5uw+kDTxmdHfHIQXuwo3QQDrJO1WquWN2ACJZHcZZcpr0+zS7TKNXYUK+ikeVGKel6P8QfmthvzhrXYjcoEJJhf9HENb5WIDeVD16nwS9l6cD3xiw73EuLY+qyku+mm13N3LZz985UG+rczKOpLufTP/RFEunSmvpxKJvQUMJXkm9/sgNnzk9mO4XvR99JnNGOqS17U/BagX42S2taLZD0tg2hrYOr+/H11FleAd+OeGf1DGyb/99Q6OEYm9/nStZvcfDzDlgrE8cd7x8sXs0PNBy3w/UpEA0ufjv4xTbTNeqJB2mdR6rvUgd7b6a1QUoWcWahm9bnxmqIcG+6Ac2UP6wwjT+/wTNuUvaMeWDhg+mL99zwHZyFRHjUU3pGrczudFmuMrsncNVL65XUMJoOxDPOKTdadws2nckQtm5tyfgkbNNK8fdqkXlG77K765s0Se9SOqcX2S2lrMwSuBIpp5ySuHtSY59MrTqj/Xjw1vSYXOOeDf+R2dKyJi67sGy3lB+1mYxc6tKsuQXQL12Gk3GwWAQ/S7EQEge0Bu+ljvdNPguiDN+CKE6JitjpYu8tK8YsBWnku/EBKUgefxwFCfBpl1cW3iXsQvEh2ZEc/wBQSwMEFAAACAgAABgh7BjTkt9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKJpYGFpYWxmamhqYWpgYmBrqW5gUFimqVhqlGKabJBsoFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7Ey4flBhAgAAFwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7BjTkt9tAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
-      objectReference: {fileID: 0}
     - target: {fileID: 7140740884667038607, guid: 1cea4581a3ca9274d9410f1430878dca, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -945,18 +937,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3782323453640756560, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782323453640756561, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782323453640756561, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782323453640756561, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3782323453640756563, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
