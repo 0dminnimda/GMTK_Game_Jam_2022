@@ -12,6 +12,7 @@ public abstract class Weapon : MonoBehaviour
 	[SerializeField]
 	protected float _actionCooldown;
 
+	[SerializeField]
 	protected float _nextActionTime = 0f;
 
 	public abstract void Action();
