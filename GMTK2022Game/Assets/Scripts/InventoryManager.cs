@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour
 	public Weapon[] Items => _weapons;
 	void Awake()
 	{
-		_weapons = new Weapon[4];
+		_weapons = new Weapon[_pivotPoints.Length];
 		SpawnWeapons();
     }
 
