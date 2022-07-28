@@ -861,22 +861,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3782323453640756560, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
   m_PrefabInstance: {fileID: 7557534464016332407}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6673282043731114793 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 199533833822195766, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-  m_PrefabInstance: {fileID: 7557534464016332407}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6673282043731114788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f81c888268f7b4089c8799ecd87285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!212 &6673282043731114796 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3782323453640756561, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-  m_PrefabInstance: {fileID: 7557534464016332407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6673282043731114799 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9220337234182016612, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
@@ -907,33 +891,17 @@ PrefabInstance:
       propertyPath: _weapons.Array.data[1]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _health
-      value: 
-      objectReference: {fileID: 6673282043731114793}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _rollcd
-      value: 0.2
+    - target: {fileID: 1688436354722578479, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _rollTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _character
-      value: 
-      objectReference: {fileID: 6673282043731114799}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _spriteRenderer
-      value: 
-      objectReference: {fileID: 6673282043731114796}
-    - target: {fileID: 199533833822195765, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _rollSpeedMultiplier
-      value: 1.6
+    - target: {fileID: 2275830952144330123, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3054163863066625638, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3782323453640756560, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
       propertyPath: m_RootOrder
@@ -995,21 +963,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 9220337234182016612, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _damage_layer
+    - target: {fileID: 5786109457267116530, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
+      propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9220337234182016612, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _weaponPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9220337234182016612, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _weaponPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9220337234182016612, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
-      propertyPath: _weaponPrefabs.Array.data[3]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43399dff3d9e0e44295cfc8b943d3447, type: 3}
