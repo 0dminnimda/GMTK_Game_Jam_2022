@@ -339,7 +339,7 @@ MonoBehaviour:
   - {fileID: 129069928048273532}
   - {fileID: 8115962389843359211}
   - {fileID: 5499039400299086655}
-  _damage_layer: 0
+  _damage_layer: 1
 --- !u!114 &199533833822195765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,16 +352,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fdbf30f914360419d95e51edf3f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 0}
+  _character: {fileID: 9220337234182016612}
   _rigidBody2D: {fileID: 7557534465027455102}
   _spriteRenderer: {fileID: 3782323453640756561}
   _health: {fileID: 199533833822195766}
   _playerSpeed: 100
   _rotationMethod: 0
   _spinningSpeed: 0
-  _rollSpeedMultiplier: 0
-  _rollTime: 0
-  _rollcd: 0
+  _rollSpeedMultiplier: 1.6
+  _rollTime: 0.3
+  _rollcd: 0.2
 --- !u!114 &5071053088843791088
 MonoBehaviour:
   m_ObjectHideFlags: 0
