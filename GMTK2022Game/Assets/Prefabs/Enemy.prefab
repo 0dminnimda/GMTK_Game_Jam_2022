@@ -207,8 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySpeed: 0.75
   _rotationSpeed: 2
-  _weapons: []
   _aIPath: {fileID: 4803184544381612106}
+  _target: {fileID: 0}
 --- !u!114 &377569891063535216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,9 +225,6 @@ MonoBehaviour:
   _currentMaxHealth: 3
   _damageLayer: 1
   ignoreDamage: 0
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4960193649248131589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +243,7 @@ MonoBehaviour:
   healthbarPivot: {fileID: 1093192528747283666}
   healthdropPivot: {fileID: 8201399547936474151}
   healthdropSpeed: 15
-  followOffset: {x: 0, y: 0.6, z: 0}
+  followOffset: {x: 0, y: 0.6, z: -1}
 --- !u!114 &5470065717046517038
 MonoBehaviour:
   m_ObjectHideFlags: 0

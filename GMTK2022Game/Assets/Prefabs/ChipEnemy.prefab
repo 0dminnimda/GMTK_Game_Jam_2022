@@ -276,7 +276,7 @@ MonoBehaviour:
   healthbarPivot: {fileID: 1093192528747283666}
   healthdropPivot: {fileID: 8201399547936474151}
   healthdropSpeed: 15
-  followOffset: {x: 0, y: 0.6, z: 0}
+  followOffset: {x: 0, y: 0.6, z: -1}
 --- !u!114 &5470065717046517038
 MonoBehaviour:
   m_ObjectHideFlags: 0

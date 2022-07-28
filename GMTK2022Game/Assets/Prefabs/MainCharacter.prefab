@@ -409,7 +409,7 @@ MonoBehaviour:
   healthbarPivot: {fileID: 5426076865096466538}
   healthdropPivot: {fileID: 3870766460872687775}
   healthdropSpeed: 20
-  followOffset: {x: 0, y: 0, z: 0}
+  followOffset: {x: 0, y: 0, z: -1}
 --- !u!50 &7557534465027455102
 Rigidbody2D:
   serializedVersion: 4
