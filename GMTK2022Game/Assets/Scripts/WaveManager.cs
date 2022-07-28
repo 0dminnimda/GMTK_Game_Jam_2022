@@ -25,6 +25,12 @@ public class WaveManager : MonoBehaviour
             this.table = table;
             this.delay = delay;
         }
+
+        public Wave(uint[] values, float delay)
+        {
+            this.table = new ChanceTable(values);
+            this.delay = delay;
+        }
     }
 
     private Wave[] waves;
@@ -36,32 +42,26 @@ public class WaveManager : MonoBehaviour
     public int waveInd;
 
     public int enemyCount = 10;
+    public float initTimeToSpawn = 0.3f;
 
     void Awake()
     {
-        var table1 = new ChanceTable(new uint[] { 10, 3, 0, 0, 0 });
-        var table2 = new ChanceTable(new uint[] { 7, 7, 3, 0, 0 });
-        var table3 = new ChanceTable(new uint[] { 5, 10, 5, 3, 0 });
-        var table4 = new ChanceTable(new uint[] { 3, 7, 7, 5, 3 });
-        var table5 = new ChanceTable(new uint[] { 0, 5, 10, 7, 5 });
-        var table6 = new ChanceTable(new uint[] { 0, 3, 7, 10, 7 });
-        var table7 = new ChanceTable(new uint[] { 0, 0, 5, 7, 10 });
-
         waves = new[]
         {
-            new Wave(table1, 0.1f),
-
-            new Wave(table2, 0.1f),
-
-            new Wave(table3, 0.1f),
-
-            new Wave(table4, 0.1f),
-
-            new Wave(table5, 0.1f),
-
-            new Wave(table6, 0.1f),
-
-            new Wave(table7, 0.1f),
+            // new Wave(new uint[] { 1, 0, 0, 0 }, initTimeToSpawn),
+            new Wave(new uint[] { 5, 0, 0, 0 }, initTimeToSpawn),
+            // new Wave(new uint[] { 10, 1, 0, 0 }, initTimeToSpawn),
+            new Wave(new uint[] { 10, 5, 0, 0 }, initTimeToSpawn),
+            // new Wave(new uint[] { 10, 10, 1, 0 }, initTimeToSpawn),
+            new Wave(new uint[] { 10, 10, 5, 0 }, initTimeToSpawn),
+            // new Wave(new uint[] { 5, 10, 10, 1 }, initTimeToSpawn),
+            // new Wave(new uint[] { 1, 10, 10, 5 }, initTimeToSpawn),
+            new Wave(new uint[] { 0, 5, 10, 10 }, initTimeToSpawn),
+            // new Wave(new uint[] { 0, 1, 10, 10 }, initTimeToSpawn),
+            new Wave(new uint[] { 0, 0, 5, 10 }, initTimeToSpawn),
+            // new Wave(new uint[] { 0, 0, 1, 10 }, initTimeToSpawn),
+            new Wave(new uint[] { 0, 0, 0, 5 }, initTimeToSpawn),
+            // new Wave(new uint[] { 0, 0, 0, 1 }, initTimeToSpawn),
         };
     }
 
