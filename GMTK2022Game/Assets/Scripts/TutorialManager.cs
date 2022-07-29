@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField]
@@ -12,7 +13,9 @@ public class TutorialManager : MonoBehaviour
     private GameObject _enemyOnMap;
 
     [SerializeField]
-    private InventoryManager _player;
+    private InventoryManager _playerInventory;
+    [SerializeField]
+    private PlayerController _playerController;
 
     [SerializeField]
     private GameObject _tutorialBounds;
@@ -36,12 +39,12 @@ public class TutorialManager : MonoBehaviour
     {
         if (_popUpIndex == 0)
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
                 Progress();
         }
         else if (_popUpIndex == 1)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (_playerController.isRolling)
                 Progress();
         }
         else if (_popUpIndex == 2)
@@ -50,7 +53,7 @@ public class TutorialManager : MonoBehaviour
 
             int left = _maxWeapons;
 
-            foreach (var i in _player.Items)
+            foreach (var i in _playerInventory.Items)
                 if (i != null)
                     left--;
 

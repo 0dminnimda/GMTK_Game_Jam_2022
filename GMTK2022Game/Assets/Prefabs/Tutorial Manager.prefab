@@ -54,7 +54,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _enemyOnMap: {fileID: 608885414639877466}
-  _player: {fileID: 0}
+  _playerInventory: {fileID: 0}
+  _playerController: {fileID: 0}
   _tutorialBounds: {fileID: 0}
   _pickUps: {fileID: 7544765051820134115}
   _level: {fileID: 0}
