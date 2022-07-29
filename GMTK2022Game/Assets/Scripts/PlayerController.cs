@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _rigidBody2D;
 
-    [SerializeField]
-    private SpriteRenderer _spriteRenderer;
+    // [SerializeField]
+    // private SpriteRenderer _spriteRenderer;
 
     [SerializeField]
     private Health _health;
@@ -107,10 +107,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DodgerollIEnum()
     {
         float timer = 0f;
-        Color characterColor = _spriteRenderer.color;
+        // Color characterColor = _spriteRenderer.color;
         while(timer < _rollTime)
         {
-            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
+            // _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
             float power = Time.deltaTime * _playerSpeed * (((_rollTime - timer) / _rollTime) + 1);
             _rigidBody2D.AddForce(_rolldir * _rollSpeedMultiplier * power, ForceMode2D.Impulse);
             int sign = Random.Range(0, 2) > 1? -1: 1;
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         _health.ignoreDamage = false;
         while (timer < _rollTime + _rollcd)
         {
-            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
+            // _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
