@@ -26,7 +26,10 @@ public class HandChaising : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
+        if (player == null)
+            return;
+
+        transform.position += (Vector3)Vector2.MoveTowards(Vector2.zero, player.transform.position - transform.position, speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
