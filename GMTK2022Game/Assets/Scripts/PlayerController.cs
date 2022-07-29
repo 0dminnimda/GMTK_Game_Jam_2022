@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _rollcd;
 
-    private bool _rolling;
+    public bool isRolling;
     private bool _fullRoll;
     private Vector2 _rolldir;
 
     private void Update()
     {
         Rotation();
-        if (!_rolling && Input.GetKey(KeyCode.LeftShift))
+        if (!isRolling && Input.GetKey(KeyCode.LeftShift))
             Dodgeroll();
 
         if (Input.GetKey(KeyCode.Space))
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if (_rigidBody2D.velocity.magnitude > 0.5f)
         {
             _rolldir = _rigidBody2D.velocity.normalized;
-            _rolling = true;
+            isRolling = true;
             _fullRoll = true;
             _health.ignoreDamage = true;
             StartCoroutine(DodgerollIEnum());
@@ -126,6 +126,6 @@ public class PlayerController : MonoBehaviour
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        _rolling = false;
+        isRolling = false;
     }
 }
