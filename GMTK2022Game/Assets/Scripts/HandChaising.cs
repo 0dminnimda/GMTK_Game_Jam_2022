@@ -1,36 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class HandChaising : MonoBehaviour
 {
-
     public float speed = 5f;
-    public Transform player;
-    public Animator animator;
-    public float hitDelay = 0.5f;
-    //public Health health;
     public int damage = 1;
-    private bool inTrigger;
+    public float preHitDelay = 0.42f;
+    public float fullHitDelay = 1f;
+
+    public Animator animator;
+
+    public GameObject player;
+    private Health playerHealth;
+
+    private bool inTrigger = false;
+    private bool isAttacking = false;
 
     public Assets.Scripts.Enums.DamageLayer damageLayer;
 
-    void Awake()
-    {
-        player = GameObject.Find("MainCharacter").GetComponent<Transform>();
-
-    }
-    // Start is called before the first frame update
     void Start()
     {
+        playerHealth = player.GetComponent<Health>();
+    }
+
+    void Update()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsTarget(collision))
+        {
+            inTrigger = true;
+            Hit();
+        }
+        // var health = collision.gameObject.GetComponent<Health>();
+
+        // if (health != null && health.DamageLayer == damageLayer)
+        // {
+        //     inTrigger = true;
+        //     StartCoroutine(WaitForHit(health));
+        // }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (IsTarget(collision))
+            Hit();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (IsTarget(collision))
+            inTrigger = false;
+    }
+
+    bool IsTarget(Collider2D collision) => GameObject.ReferenceEquals(collision.gameObject, player);
+
+    void Hit()
+    {
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            StartCoroutine(WaitForHit(playerHealth));
+        }
     }
 
     IEnumerator WaitForHit(Health health)
     {
-        animator.SetTrigger("Smash");
-        yield return new WaitForSeconds(hitDelay);
-        // print("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
+        animator.Play("Smash");
+        yield return new WaitForSeconds(preHitDelay);
         if (inTrigger) DealDamage(health);
-        yield break;
+        yield return new WaitForSeconds(fullHitDelay - preHitDelay);
+        isAttacking = false;
     }
 
     void DealDamage(Health health)
@@ -38,35 +82,4 @@ public class HandChaising : MonoBehaviour
         health.DealDamage(damage, damageLayer);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var health = collision.gameObject.GetComponent<Health>();
-        if (collision.gameObject.name == "MainCharacter")
-        {
-            inTrigger = true;
-            // print("Found the Player");
-            StartCoroutine(WaitForHit(health));
-
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "MainCharacter")
-        {
-            inTrigger = false;
-        }
-    }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        void FixedUpdate()
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed);
-        }
-    }
+}
