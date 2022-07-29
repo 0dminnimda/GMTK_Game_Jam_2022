@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _rollSpeedMultiplier;
     [SerializeField]
+    private float _rollTorqueMultiplier;
+    [SerializeField]
     private float _rollTime;
     [SerializeField]
     private float _rollcd;
@@ -62,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Dodgeroll()
     {
-        if(_rigidBody2D.velocity.magnitude > 0.5f)
+        if (_rigidBody2D.velocity.magnitude > 0.5f)
         {
             _rolldir = _rigidBody2D.velocity.normalized;
             _rolling = true;
@@ -109,7 +111,10 @@ public class PlayerController : MonoBehaviour
         while(timer < _rollTime)
         {
             _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
-            _rigidBody2D.AddForce(_rolldir * Time.deltaTime * _playerSpeed * _rollSpeedMultiplier * (((_rollTime - timer) / _rollTime) + 1), ForceMode2D.Impulse);
+            float power = Time.deltaTime * _playerSpeed * (((_rollTime - timer) / _rollTime) + 1);
+            _rigidBody2D.AddForce(_rolldir * _rollSpeedMultiplier * power, ForceMode2D.Impulse);
+            int sign = Random.Range(0, 2) > 1? -1: 1;
+            _rigidBody2D.AddTorque(power * _rollTorqueMultiplier * sign);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

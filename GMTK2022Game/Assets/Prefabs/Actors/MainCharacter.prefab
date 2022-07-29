@@ -360,6 +360,7 @@ MonoBehaviour:
   _rotationMethod: 0
   _spinningSpeed: 0
   _rollSpeedMultiplier: 1.6
+  _rollTorqueMultiplier: 1
   _rollTime: 0.3
   _rollcd: 0.2
 --- !u!114 &5071053088843791088
