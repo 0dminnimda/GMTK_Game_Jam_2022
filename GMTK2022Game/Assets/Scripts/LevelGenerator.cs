@@ -58,6 +58,8 @@ public class LevelGenerator : MonoBehaviour
 				}
 			}
 		}
+
+		AstarPath.active.Scan();
 	}
 
 	private Vector2 RandomPosition(Bounds bounds)

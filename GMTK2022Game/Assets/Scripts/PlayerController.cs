@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private MainCharacter _character;
+    private InventoryManager _character;
 
     [SerializeField]
     private Rigidbody2D _rigidBody2D;
 
-    [SerializeField]
-    private SpriteRenderer _spriteRenderer;
+    // [SerializeField]
+    // private SpriteRenderer _spriteRenderer;
 
     [SerializeField]
     private Health _health;
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _rollSpeedMultiplier;
     [SerializeField]
+    private float _rollTorqueMultiplier;
+    [SerializeField]
     private float _rollTime;
     [SerializeField]
     private float _rollcd;
@@ -43,12 +45,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Rotation();
-
-        if (!_rolling && Input.GetKeyDown(KeyCode.Space))
+        if (!_rolling && Input.GetKey(KeyCode.LeftShift))
             Dodgeroll();
 
-        if (Input.GetAxisRaw("Fire1") > 0)
-            _character.WeaponList.ToList().ForEach(x => { if (x != null) x.Action(); });
+        if (Input.GetKey(KeyCode.Space))
+            _character.Items.ToList().ForEach(x => { if (x != null) x.Action(); });
     }
 
     void FixedUpdate()
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Dodgeroll()
     {
-        if(_rigidBody2D.velocity.magnitude > 0.5f)
+        if (_rigidBody2D.velocity.magnitude > 0.5f)
         {
             _rolldir = _rigidBody2D.velocity.normalized;
             _rolling = true;
@@ -106,11 +107,14 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DodgerollIEnum()
     {
         float timer = 0f;
-        Color characterColor = _spriteRenderer.color;
+        // Color characterColor = _spriteRenderer.color;
         while(timer < _rollTime)
         {
-            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
-            _rigidBody2D.AddForce(_rolldir * Time.deltaTime * _playerSpeed * _rollSpeedMultiplier * (((_rollTime - timer) / _rollTime) + 1), ForceMode2D.Impulse);
+            // _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, new Color(characterColor.r * 0.7f, characterColor.g * 0.7f, characterColor.b * 0.7f, characterColor.a), 30f * Time.deltaTime);
+            float power = Time.deltaTime * _playerSpeed * (((_rollTime - timer) / _rollTime) + 1);
+            _rigidBody2D.AddForce(_rolldir * _rollSpeedMultiplier * power, ForceMode2D.Impulse);
+            int sign = Random.Range(0, 2) > 1? -1: 1;
+            _rigidBody2D.AddTorque(power * _rollTorqueMultiplier * sign);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -118,7 +122,7 @@ public class PlayerController : MonoBehaviour
         _health.ignoreDamage = false;
         while (timer < _rollTime + _rollcd)
         {
-            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
+            // _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, characterColor, 35f * Time.deltaTime);
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

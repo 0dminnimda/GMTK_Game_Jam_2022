@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Drag
   layers:
   - Default
   - TransparentFX
@@ -11,8 +12,9 @@ TagManager:
   - Projectile
   - Water
   - UI
+  - DragAndDrop
   - Obstacle
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -38,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Pickups
+    uniqueID: 1017090977
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

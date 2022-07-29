@@ -8,7 +8,7 @@ public class Healthbar : MonoBehaviour
     public float epsilon = 0.01f;
 
 	[SerializeField]
-	private Health health;
+	private Health health;  // FIXME: better be initialized in awake
 
 	[SerializeField]
 	private Transform healthbar;
@@ -38,7 +38,6 @@ public class Healthbar : MonoBehaviour
 			healthdropPivot.localScale = Vector3.zero;
 
 			health.Die();
-			Destroy(gameObject);
 		}
 	}
 }
