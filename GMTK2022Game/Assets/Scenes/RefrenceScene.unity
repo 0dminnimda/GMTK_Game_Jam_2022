@@ -579,10 +579,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.09
-  player: {fileID: 6673282043731114791}
-  animator: {fileID: 2146042616}
-  hitDelay: 0.5
   damage: 1
+  preHitDelay: 0.42
+  fullHitDelay: 1
+  animator: {fileID: 2146042616}
+  player: {fileID: 6673282043731114788}
   damageLayer: 0
 --- !u!4 &872655292
 Transform:
