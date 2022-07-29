@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 8949847515913121330, guid: b5898cbcec61ca64f8a97dcfa3e05542, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8949847515913121331, guid: b5898cbcec61ca64f8a97dcfa3e05542, type: 3}
       propertyPath: _changerMenu
       value: 
